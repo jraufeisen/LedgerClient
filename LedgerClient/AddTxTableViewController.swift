@@ -38,6 +38,9 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         }
         
         
+        
+        
+        
     }
 
     
@@ -46,6 +49,8 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(addTransaction))
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,5 +66,9 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
+    //MARK: Interaction with other VC
+    public func configureCategory(category: String) {
+        self.categoryField.text = category
+    }
 
 }

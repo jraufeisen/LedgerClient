@@ -12,6 +12,8 @@
 		EB1CC7921F8377E400F2DDF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB1CC7911F8377E400F2DDF8 /* Assets.xcassets */; };
 		EB1CC7951F8377E400F2DDF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1CC7931F8377E400F2DDF8 /* LaunchScreen.storyboard */; };
 		EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */; };
+		EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */; };
+		EBD8E2FA1F83B4F10041D1AF /* LedgerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		EB1CC7961F8377E400F2DDF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB1CC79C1F83784C00F2DDF8 /* LedgerClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LedgerClient.entitlements; sourceTree = "<group>"; };
 		EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTxTableViewController.swift; sourceTree = "<group>"; };
+		EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				EB1CC78A1F8377E400F2DDF8 /* AppDelegate.swift */,
 				EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */,
 				EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */,
+				EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */,
+				EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */,
 				EB1CC7911F8377E400F2DDF8 /* Assets.xcassets */,
 				EB1CC7931F8377E400F2DDF8 /* LaunchScreen.storyboard */,
 				EB1CC7961F8377E400F2DDF8 /* Info.plist */,
@@ -144,8 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD8E2FA1F83B4F10041D1AF /* LedgerManager.swift in Sources */,
 				EB1CC78B1F8377E400F2DDF8 /* AppDelegate.swift in Sources */,
 				EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */,
+				EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
