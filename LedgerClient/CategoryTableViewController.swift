@@ -12,11 +12,18 @@ class CategoryTableViewController: UITableViewController {
 
     
     let categories = LedgerManager.categories()
+    var budget = [String:Decimal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Categegories"
+        
+        //Init values
+        for cat in categories {
+            let amount = LedgerManager.availableBudget(category: cat)
+            budget[cat] = amount
+        }
         
     }
 
@@ -38,9 +45,15 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryID", for: indexPath)
-
-        cell.textLabel?.text = categories[indexPath.row]
+        let category = categories[indexPath.row]
         
+        cell.textLabel?.text = category
+
+        if let amount = budget[category] {
+            cell.detailTextLabel?.text = "\(amount) €"
+        } else {
+            cell.detailTextLabel?.text = "NaN €"
+        }
         return cell
     }
  

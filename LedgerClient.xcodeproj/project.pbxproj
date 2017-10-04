@@ -14,6 +14,7 @@
 		EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */; };
 		EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */; };
 		EBD8E2FA1F83B4F10041D1AF /* LedgerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */; };
+		EBFCEA761F842EAB00447E6E /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFCEA751F842EAB00447E6E /* libiconv.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTxTableViewController.swift; sourceTree = "<group>"; };
 		EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerManager.swift; sourceTree = "<group>"; };
+		EBFCEA751F842EAB00447E6E /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		EBFCEA771F84307000447E6E /* LedgerClient-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LedgerClient-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFCEA761F842EAB00447E6E /* libiconv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +49,7 @@
 			children = (
 				EB1CC7891F8377E400F2DDF8 /* LedgerClient */,
 				EB1CC7881F8377E400F2DDF8 /* Products */,
+				EBFCEA741F842EAA00447E6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +66,7 @@
 			children = (
 				EB1CC79C1F83784C00F2DDF8 /* LedgerClient.entitlements */,
 				EB1CC78A1F8377E400F2DDF8 /* AppDelegate.swift */,
+				EBFCEA771F84307000447E6E /* LedgerClient-Bridging-Header.h */,
 				EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */,
 				EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */,
 				EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */,
@@ -70,6 +76,14 @@
 				EB1CC7961F8377E400F2DDF8 /* Info.plist */,
 			);
 			path = LedgerClient;
+			sourceTree = "<group>";
+		};
+		EBFCEA741F842EAA00447E6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBFCEA751F842EAB00447E6E /* libiconv.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,13 +289,20 @@
 		EB1CC79A1F8377E400F2DDF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LedgerClient/LedgerClient.entitlements;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				HEADER_SEARCH_PATHS = "/usr/local/lib/arm-apple-darwin10-ghc-7.8.0.20140228/include/";
 				INFOPLIST_FILE = LedgerClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.LedgerClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LedgerClient/LedgerClient-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -289,13 +310,20 @@
 		EB1CC79B1F8377E400F2DDF8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LedgerClient/LedgerClient.entitlements;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				HEADER_SEARCH_PATHS = "/usr/local/lib/arm-apple-darwin10-ghc-7.8.0.20140228/include/";
 				INFOPLIST_FILE = LedgerClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.LedgerClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LedgerClient/LedgerClient-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

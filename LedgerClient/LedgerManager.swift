@@ -10,6 +10,14 @@ import UIKit
 
 class LedgerManager: NSObject {
     
+    class func defaultJournal() -> String {
+        FileManager.default.url(forUbiquityContainerIdentifier: nil)
+        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {return ""}
+        let finance_URL = iCloudDocumentsURL.appendingPathComponent("/finances.txt")
+        let found = FileManager.default.contents(atPath: finance_URL.path)!
+        guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return ""}
+        return string_contents
+    }
     
     
     
@@ -17,12 +25,7 @@ class LedgerManager: NSObject {
         
         var categories = [String]()
         
-        FileManager.default.url(forUbiquityContainerIdentifier: nil)
-        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {return categories}
-        let finance_URL = iCloudDocumentsURL.appendingPathComponent("/finances.txt")
-        let found = FileManager.default.contents(atPath: finance_URL.path)!
-        guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return categories}
-
+        let string_contents = LedgerManager.defaultJournal()
         
         let pat = "Assets:Budget:\\b([^]]*)"
         let regex = try! NSRegularExpression(pattern: pat, options: [])
@@ -42,6 +45,31 @@ class LedgerManager: NSObject {
         
         
         return categories
+        
+    }
+    
+    
+    class func availableBudget(category: String) -> Decimal {
+        let pat = "Assets:Budget:\(category)]\\s*[-0-9.]*"
+        let testStr = LedgerManager.defaultJournal()
+        let regex = try! NSRegularExpression(pattern: pat, options: [])
+        let matches = regex.matches(in: testStr, options: [], range: NSRange(location: 0, length: testStr.characters.count))
+        
+        var total: Decimal = Decimal(0)
+        for match in matches {
+            let range = match.rangeAt(0)
+            let r = testStr.index(testStr.startIndex, offsetBy: range.location) ..< testStr.index(testStr.startIndex, offsetBy: range.location+range.length)
+            //let found = testStr.substring(from: testStr.index(testStr.startIndex, offsetBy: range.location))
+            var found = testStr.substring(with: r)
+            found = found.replacingOccurrences(of: "Assets:Budget:\(category)]", with: "")
+            found = found.trimmingCharacters(in: .whitespaces)
+            //print("Gefunden: \(found) fertig")
+            if let value = Decimal.init(string: found) {
+                total.add(value)
+            }
+            
+        }
+        return total
         
     }
     

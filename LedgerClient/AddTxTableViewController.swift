@@ -29,7 +29,8 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         let finance_URL = iCloudDocumentsURL.appendingPathComponent("/finances.txt")
         let found = FileManager.default.contents(atPath: finance_URL.path)!
         guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return}
-        let append = "2017/10/03 Test Transaktion\n\tAssets:Banking:Bargeld \t \(value) €\n\t[Assets:Budget:\(category)]\t \(value) €\n\tAusgaben:\(category)\t \(reverse_value) €\n\tEquity:AntiBudget:\(category)"
+    
+        let append = "2017/10/03 Test Transaktion\n\tAssets:Banking:Bargeld \t \(value) EUR\n\t[Assets:Budget:\(category)]\t \(value) EUR\n\tAusgaben:\(category)\t \(reverse_value) EUR\n\tEquity:AntiBudget:\(category)"
         let together = string_contents + "\n\n" + append
         do {
             try together.write(to: finance_URL, atomically: true, encoding: String.Encoding.utf8)
