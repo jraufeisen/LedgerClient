@@ -19,6 +19,16 @@ class LedgerManager: NSObject {
         return string_contents
     }
     
+    /*
+    *   Returns a string describing a date in the correct format 2016/10/05
+    */
+    class func dateString(date: Date) -> String {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dateFormatter.string(from: date)
+        
+
+    }
     
     
     class func categories() -> [String] {
