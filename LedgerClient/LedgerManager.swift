@@ -10,14 +10,19 @@ import UIKit
 
 class LedgerManager: NSObject {
     
-    class func defaultJournal() -> String {
-        FileManager.default.url(forUbiquityContainerIdentifier: nil)
-        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {return ""}
+    class func defaultURL() -> URL {
+        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {return URL.init(fileURLWithPath: "")}
         let finance_URL = iCloudDocumentsURL.appendingPathComponent("/finances.txt")
-        let found = FileManager.default.contents(atPath: finance_URL.path)!
+        return finance_URL
+    }
+    
+    class func defaultJournal() -> String {
+        let found = FileManager.default.contents(atPath: LedgerManager.defaultURL().path)!
         guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return ""}
         return string_contents
     }
+    
+    
     
     /*
     *   Returns a string describing a date in the correct format 2016/10/05

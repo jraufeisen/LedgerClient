@@ -24,18 +24,15 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         
         let reverse_value = value.range(of: "-") == nil ? "-" + value : value.replacingOccurrences(of: "-", with: "")
         
-        FileManager.default.url(forUbiquityContainerIdentifier: nil)
-        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {return}
-        let finance_URL = iCloudDocumentsURL.appendingPathComponent("/finances.txt")
-        let found = FileManager.default.contents(atPath: finance_URL.path)!
-        guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return}
+        let string_contents = LedgerManager.defaultJournal()
     
         let date = LedgerManager.dateString(date: Date())
         
         let append = "\(date) Test Transaktion\n\tAssets:Banking:Bargeld \t \(value) EUR\n\t[Assets:Budget:\(category)]\t \(value) EUR\n\tAusgaben:\(category)\t \(reverse_value) EUR\n\tEquity:AntiBudget:\(category)"
         let together = string_contents + "\n\n" + append
         do {
-            try together.write(to: finance_URL, atomically: true, encoding: String.Encoding.utf8)
+            try together.write(to: LedgerManager.defaultURL(), atomically: true, encoding: String.Encoding.utf8)
+            clearInputs()
         } catch {
             print("Could not write")
         }
@@ -46,6 +43,13 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
 
+    func clearInputs() {
+        for field in [valueField, categoryField] {
+            field?.text = ""
+            field?.resignFirstResponder()
+        }
+        
+    }
     
     
     override func viewDidLoad() {
@@ -53,7 +57,8 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(addTransaction))
         
-        
+        //MARk value red/greeen
+        valueField.addTarget(self, action: #selector(markValue), for: .editingChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,8 +68,25 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
 
    
     //MARK: UITextFieldDelegate
+    @objc func markValue() {
+        guard var text = valueField.text else {return}
+        text = text.replacingOccurrences(of: ",", with: ".")
+        guard let value = Decimal.init(string: text) else {return}
+        if value > 0 {
+            valueField.textColor = .green
+        } else if value < 0 {
+            valueField.textColor = .red
+        } else {
+            valueField.textColor = .gray
+        }
+
+    }
+    
+ 
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
         textField.resignFirstResponder()
         return true
     }
