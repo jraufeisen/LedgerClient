@@ -14,6 +14,7 @@
 		EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */; };
 		EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */; };
 		EBD8E2FA1F83B4F10041D1AF /* LedgerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */; };
+		EBE792F01F86CBE70047C7ED /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */; };
 		EBFCEA761F842EAB00447E6E /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFCEA751F842EAB00447E6E /* libiconv.tbd */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTxTableViewController.swift; sourceTree = "<group>"; };
 		EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerManager.swift; sourceTree = "<group>"; };
+		EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EBFCEA751F842EAB00447E6E /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		EBFCEA771F84307000447E6E /* LedgerClient-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LedgerClient-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,10 +69,11 @@
 				EB1CC79C1F83784C00F2DDF8 /* LedgerClient.entitlements */,
 				EB1CC78A1F8377E400F2DDF8 /* AppDelegate.swift */,
 				EBFCEA771F84307000447E6E /* LedgerClient-Bridging-Header.h */,
-				EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */,
-				EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */,
-				EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */,
 				EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */,
+				EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */,
+				EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */,
+				EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */,
+				EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */,
 				EB1CC7911F8377E400F2DDF8 /* Assets.xcassets */,
 				EB1CC7931F8377E400F2DDF8 /* LaunchScreen.storyboard */,
 				EB1CC7961F8377E400F2DDF8 /* Info.plist */,
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD8E2FA1F83B4F10041D1AF /* LedgerManager.swift in Sources */,
+				EBE792F01F86CBE70047C7ED /* AccountTableViewController.swift in Sources */,
 				EB1CC78B1F8377E400F2DDF8 /* AppDelegate.swift in Sources */,
 				EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */,
 				EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */,

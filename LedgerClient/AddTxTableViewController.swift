@@ -12,11 +12,13 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
    
     @IBOutlet weak var valueField: UITextField!
     @IBOutlet weak var categoryField: UITextField!
+    @IBOutlet weak var accountField: UITextField!
     
     func addTransaction() {
         
         guard let value = self.valueField.text?.replacingOccurrences(of: ",", with: ".") else {return}
         guard let category = self.categoryField.text else {return}
+        guard let account = self.accountField.text else {return}
         
         guard !(value.isEmpty) else {return}
         guard !(category.isEmpty) else {return}
@@ -28,7 +30,7 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
     
         let date = LedgerManager.dateString(date: Date())
         
-        let append = "\(date) Test Transaktion\n\tAssets:Banking:Bargeld \t \(value) EUR\n\t[Assets:Budget:\(category)]\t \(value) EUR\n\tAusgaben:\(category)\t \(reverse_value) EUR\n\tEquity:AntiBudget:\(category)"
+        let append = "\(date) Test Transaktion\n\tAssets:Banking:\(account) \t \(value) EUR\n\t[Assets:Budget:\(category)]\t \(value) EUR\n\tAusgaben:\(category)\t \(reverse_value) EUR\n\tEquity:AntiBudget:\(category)"
         let together = string_contents + "\n\n" + append
         do {
             try together.write(to: LedgerManager.defaultURL(), atomically: true, encoding: String.Encoding.utf8)
@@ -44,7 +46,7 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
     }
 
     func clearInputs() {
-        for field in [valueField, categoryField] {
+        for field in [valueField, categoryField, accountField] {
             field?.text = ""
             field?.resignFirstResponder()
         }
@@ -93,7 +95,10 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
     
     //MARK: Interaction with other VC
     public func configureCategory(category: String) {
-        self.categoryField.text = category
+        categoryField.text = category
+    }
+    public func configureAccount(account: String) {
+        accountField.text = account
     }
 
 }
