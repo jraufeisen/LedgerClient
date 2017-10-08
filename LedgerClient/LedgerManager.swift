@@ -47,11 +47,10 @@ class LedgerManager: NSObject {
         let matches = regex.matches(in: string_contents, options: [], range: NSRange(location: 0, length: string_contents.characters.count))
         
         for match in matches {
-            let range = match.rangeAt(1)
+            let range = match.range(at: 1)
             let r = string_contents.index(string_contents.startIndex, offsetBy: range.location) ..< string_contents.index(string_contents.startIndex, offsetBy: range.location+range.length)
-            //testStr.substring(from: testStr.index(testStr.startIndex, offsetBy: range.location))
-            let category = string_contents.substring(with: r)
-            
+
+            let category = String(string_contents[r])
             if (!categories.contains(category)) {
                 categories.append(category)
             }
@@ -72,15 +71,14 @@ class LedgerManager: NSObject {
         
         var total: Decimal = Decimal(0)
         for match in matches {
-            let range = match.rangeAt(0)
-            let r = testStr.index(testStr.startIndex, offsetBy: range.location) ..< testStr.index(testStr.startIndex, offsetBy: range.location+range.length)
-            //let found = testStr.substring(from: testStr.index(testStr.startIndex, offsetBy: range.location))
-            var found = testStr.substring(with: r)
+            let range = match.range(at: 0)
+            var found = String(testStr[testStr.index(testStr.startIndex, offsetBy: range.location)...])
+            //print(ffound)
             found = found.replacingOccurrences(of: "Assets:Budget:\(category)]", with: "")
             found = found.trimmingCharacters(in: .whitespaces)
             //print("Gefunden: \(found) fertig")
             if let value = Decimal.init(string: found) {
-                total.add(value)
+                total += value
             }
             
         }

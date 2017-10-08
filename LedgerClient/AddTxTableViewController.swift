@@ -14,7 +14,7 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var accountField: UITextField!
     
-    func addTransaction() {
+    @objc func addTransaction() {
         
         guard let value = self.valueField.text?.replacingOccurrences(of: ",", with: ".") else {return}
         guard let category = self.categoryField.text else {return}
@@ -30,7 +30,15 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
     
         let date = LedgerManager.dateString(date: Date())
         
-        let append = "\(date) Test Transaktion\n\tAssets:Banking:\(account) \t \(value) EUR\n\t[Assets:Budget:\(category)]\t \(value) EUR\n\tAusgaben:\(category)\t \(reverse_value) EUR\n\tEquity:AntiBudget:\(category)"
+        let append = """
+        
+        \(date) Transaktion
+        \tAssets:Banking:\(account) \t \(value) EUR
+        \t[Assets:Budget:\(category)]\t \(value) EUR
+        \tAusgaben:\(category)\t \(reverse_value) EUR
+        \tEquity:AntiBudget:\(category)
+        
+        """
         let together = string_contents + "\n\n" + append
         do {
             try together.write(to: LedgerManager.defaultURL(), atomically: true, encoding: String.Encoding.utf8)
