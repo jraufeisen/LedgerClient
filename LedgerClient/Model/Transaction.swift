@@ -37,6 +37,29 @@ class Transaction: NSObject {
         super.init()
     }
     
+    init?(ledgerString: String) {
+        let cleanedLedger = ledgerString.trimmingCharacters(in: .whitespaces)
+        
+        guard let date = Parser.parseDateFromLine(line: cleanedLedger) else { return nil }
+        self.date = date
+       
+        
+        
+        for lineSubString in cleanedLedger.split(separator: "\n").dropFirst() {
+            let line = String(lineSubString)
+           
+        }
+        
+        
+        self.name = ""
+        self.postings = [:]
+        
+        super.init()
+    }
+    
+    
+    
+    
     
     
     
