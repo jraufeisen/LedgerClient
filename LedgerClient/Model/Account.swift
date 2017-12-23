@@ -15,7 +15,7 @@ class Account: NSObject {
     let name: String
     
     override var description: String {
-        return "Account: \(name)"
+        return name
     }
     
     
@@ -38,7 +38,7 @@ class Account: NSObject {
         testStr = testStr.replacingOccurrences(of: "]", with: "")
 
         //Match until an invalid character occurrs
-        let pat = "[A-Z,a-z,:]*"
+        let pat = "[A-Z,a-z,:]+"
         let regex = try! NSRegularExpression(pattern: pat, options: [])
         let matches = regex.matches(in: testStr, options: [], range: NSRange(location: 0, length: testStr.count))
         guard let match = matches.first else { return nil}

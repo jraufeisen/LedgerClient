@@ -58,6 +58,17 @@ class LedgerClientTests: XCTestCase {
         XCTAssert(date == nil)
     }
     
+    func testNameParsing() {
+        var input = "2017/10/08 Tanken bei Tankstelle so und so"
+        var name = Parser.parseNameFromLine(line: input)
+        
+        XCTAssert(name == "Tanken bei Tankstelle so und so")
+        
+        input = "There is no date in here"
+        name = Parser.parseNameFromLine(line: input)
+        XCTAssert(name == nil)
+    }
+    
     func testTransactionParsing() {
         let input = """
                 2017/10/08 Tanken
@@ -67,28 +78,36 @@ class LedgerClientTests: XCTestCase {
                     Equity:AntiBudget:Sprit
         """
 
-        let tx = Transaction.init(ledgerString: input)
+        let tx = Transaction.init(ledgerString: input)!
         
+        //Date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-mm-dd" //Your date format
         let trueDate = dateFormatter.date(from: "2017-10-08")! //according to date format your date string
-
-        XCTAssert(tx?.date == trueDate)
+        print("This is the date of the test tranaction")
+        print(tx.date)
+        XCTAssert(tx.date == trueDate)
+        
+        //Data
+        print("These are the postings from tx parsing")
+        print(tx.postings)
         
     }
     
     func testPostingParsing() {
         let input = "   Assets:Banking:Kreditkarte      -48.27 EUR"
         let posting = Parser.parsePostingFromLine(line: input)!
-        
-        
-        
-        XCTAssert(posting[Account.init(name: "Assets:Banking:Kreditkarte")] == Decimal(-48.27))
-        
+        print("This is the seperatly parsed posting")
         print(posting)
-        
-        
-        
+        let key = Account.init(name: "Assets:Banking:Kreditkarte")
+        let val = Decimal.init(string: "-48.27")!
+        XCTAssert(posting == (key,val) )
     }
+    
+    
+    
+    
+    
+    
     
 }
