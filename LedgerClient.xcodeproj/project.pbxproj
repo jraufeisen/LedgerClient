@@ -16,8 +16,25 @@
 		EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */; };
 		EBD8E2FA1F83B4F10041D1AF /* LedgerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */; };
 		EBE792F01F86CBE70047C7ED /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */; };
+		EBF8D0711FEE8DF600CBF280 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0701FEE8DF600CBF280 /* Parser.swift */; };
+		EBF8D0731FEE8E0600CBF280 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0721FEE8E0600CBF280 /* Account.swift */; };
+		EBF8D0751FEE8E1400CBF280 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0741FEE8E1400CBF280 /* Transaction.swift */; };
+		EBF8D07D1FEE96F800CBF280 /* LedgerClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D07C1FEE96F800CBF280 /* LedgerClientTests.swift */; };
+		EBF8D0841FEE979F00CBF280 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0701FEE8DF600CBF280 /* Parser.swift */; };
+		EBF8D0851FEE97A200CBF280 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0721FEE8E0600CBF280 /* Account.swift */; };
+		EBF8D0861FEE97A400CBF280 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0741FEE8E1400CBF280 /* Transaction.swift */; };
 		EBFCEA761F842EAB00447E6E /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFCEA751F842EAB00447E6E /* libiconv.tbd */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBF8D07F1FEE96F800CBF280 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB1CC77F1F8377E400F2DDF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB1CC7861F8377E400F2DDF8;
+			remoteInfo = LedgerClient;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EB1CC7871F8377E400F2DDF8 /* LedgerClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LedgerClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +49,12 @@
 		EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerManager.swift; sourceTree = "<group>"; };
 		EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		EBF8D0701FEE8DF600CBF280 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		EBF8D0721FEE8E0600CBF280 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		EBF8D0741FEE8E1400CBF280 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		EBF8D07A1FEE96F800CBF280 /* LedgerClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LedgerClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBF8D07C1FEE96F800CBF280 /* LedgerClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerClientTests.swift; sourceTree = "<group>"; };
+		EBF8D07E1FEE96F800CBF280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBFCEA751F842EAB00447E6E /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		EBFCEA771F84307000447E6E /* LedgerClient-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LedgerClient-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +68,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EBF8D0771FEE96F800CBF280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -52,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				EB1CC7891F8377E400F2DDF8 /* LedgerClient */,
+				EBF8D07B1FEE96F800CBF280 /* LedgerClientTests */,
 				EB1CC7881F8377E400F2DDF8 /* Products */,
 				EBFCEA741F842EAA00447E6E /* Frameworks */,
 			);
@@ -61,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				EB1CC7871F8377E400F2DDF8 /* LedgerClient.app */,
+				EBF8D07A1FEE96F800CBF280 /* LedgerClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +104,7 @@
 				EB1CC78A1F8377E400F2DDF8 /* AppDelegate.swift */,
 				EBFCEA771F84307000447E6E /* LedgerClient-Bridging-Header.h */,
 				EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */,
+				EBF8D06D1FEE8DD600CBF280 /* Model */,
 				EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */,
 				EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */,
 				EB3527A81FEDAA1300DB0B70 /* TransferTableViewController.swift */,
@@ -82,6 +115,25 @@
 				EB1CC7961F8377E400F2DDF8 /* Info.plist */,
 			);
 			path = LedgerClient;
+			sourceTree = "<group>";
+		};
+		EBF8D06D1FEE8DD600CBF280 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8D0701FEE8DF600CBF280 /* Parser.swift */,
+				EBF8D0721FEE8E0600CBF280 /* Account.swift */,
+				EBF8D0741FEE8E1400CBF280 /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EBF8D07B1FEE96F800CBF280 /* LedgerClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8D07C1FEE96F800CBF280 /* LedgerClientTests.swift */,
+				EBF8D07E1FEE96F800CBF280 /* Info.plist */,
+			);
+			path = LedgerClientTests;
 			sourceTree = "<group>";
 		};
 		EBFCEA741F842EAA00447E6E /* Frameworks */ = {
@@ -112,13 +164,31 @@
 			productReference = EB1CC7871F8377E400F2DDF8 /* LedgerClient.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EBF8D0791FEE96F800CBF280 /* LedgerClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBF8D0811FEE96F800CBF280 /* Build configuration list for PBXNativeTarget "LedgerClientTests" */;
+			buildPhases = (
+				EBF8D0761FEE96F800CBF280 /* Sources */,
+				EBF8D0771FEE96F800CBF280 /* Frameworks */,
+				EBF8D0781FEE96F800CBF280 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBF8D0801FEE96F800CBF280 /* PBXTargetDependency */,
+			);
+			name = LedgerClientTests;
+			productName = LedgerClientTests;
+			productReference = EBF8D07A1FEE96F800CBF280 /* LedgerClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		EB1CC77F1F8377E400F2DDF8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Johannes Raufeisen";
 				TargetAttributes = {
@@ -132,6 +202,12 @@
 								enabled = 1;
 							};
 						};
+					};
+					EBF8D0791FEE96F800CBF280 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = YLJFWRHN2U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EB1CC7861F8377E400F2DDF8;
 					};
 				};
 			};
@@ -149,6 +225,7 @@
 			projectRoot = "";
 			targets = (
 				EB1CC7861F8377E400F2DDF8 /* LedgerClient */,
+				EBF8D0791FEE96F800CBF280 /* LedgerClientTests */,
 			);
 		};
 /* End PBXProject section */
@@ -164,6 +241,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EBF8D0781FEE96F800CBF280 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -176,11 +260,33 @@
 				EB3527A91FEDAA1300DB0B70 /* TransferTableViewController.swift in Sources */,
 				EB1CC78B1F8377E400F2DDF8 /* AppDelegate.swift in Sources */,
 				EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */,
+				EBF8D0731FEE8E0600CBF280 /* Account.swift in Sources */,
 				EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */,
+				EBF8D0711FEE8DF600CBF280 /* Parser.swift in Sources */,
+				EBF8D0751FEE8E1400CBF280 /* Transaction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBF8D0761FEE96F800CBF280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBF8D0841FEE979F00CBF280 /* Parser.swift in Sources */,
+				EBF8D07D1FEE96F800CBF280 /* LedgerClientTests.swift in Sources */,
+				EBF8D0861FEE97A400CBF280 /* Transaction.swift in Sources */,
+				EBF8D0851FEE97A200CBF280 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EBF8D0801FEE96F800CBF280 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB1CC7861F8377E400F2DDF8 /* LedgerClient */;
+			targetProxy = EBF8D07F1FEE96F800CBF280 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */ = {
@@ -345,6 +451,48 @@
 			};
 			name = Release;
 		};
+		EBF8D0821FEE96F800CBF280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = LedgerClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.LedgerClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LedgerClient.app/LedgerClient";
+			};
+			name = Debug;
+		};
+		EBF8D0831FEE96F800CBF280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = LedgerClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.LedgerClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LedgerClient.app/LedgerClient";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -362,6 +510,15 @@
 			buildConfigurations = (
 				EB1CC79A1F8377E400F2DDF8 /* Debug */,
 				EB1CC79B1F8377E400F2DDF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBF8D0811FEE96F800CBF280 /* Build configuration list for PBXNativeTarget "LedgerClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBF8D0821FEE96F800CBF280 /* Debug */,
+				EBF8D0831FEE96F800CBF280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -31,8 +31,6 @@ class LedgerManager: NSObject {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         return dateFormatter.string(from: date)
-        
-
     }
     
     
