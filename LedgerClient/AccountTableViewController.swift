@@ -10,6 +10,9 @@ import UIKit
 
 class AccountTableViewController: UITableViewController {
 
+    let accounts = ["Bargeld","Girokonto","Kreditkarte", "Tagesgeld"]
+    var accountDelegate: AccountTableViewDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Accounts"
@@ -21,14 +24,31 @@ class AccountTableViewController: UITableViewController {
 
   
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let names = ["Bargeld","Girokonto","Kreditkarte"]
-        if let controller = navigationController?.viewControllers.first as? AddTxTableViewController {
-            controller.configureAccount(account: names[indexPath.row])
-        }
-        
+        //Use account delegate to let other VC know which account has been selected
+        accountDelegate?.didSelectAccount(account: accounts[indexPath.row])
         navigationController?.popViewController(animated: true)
-
         
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return accounts.count
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell") else {return UITableViewCell()}
+        let account = accounts[indexPath.row]
+        
+        
+        cell.textLabel?.text = account
+        cell.detailTextLabel?.text = "\(LedgerManager.balance(account: account))"
+        
+        return cell
+    }
 }
+
+protocol AccountTableViewDelegate {
+    func didSelectAccount(account: String)
+}
+
+

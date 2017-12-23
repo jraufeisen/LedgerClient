@@ -58,7 +58,6 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
             field?.text = ""
             field?.resignFirstResponder()
         }
-        
     }
     
     
@@ -96,7 +95,6 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
         textField.resignFirstResponder()
         return true
     }
@@ -105,8 +103,30 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
     public func configureCategory(category: String) {
         categoryField.text = category
     }
-    public func configureAccount(account: String) {
-        accountField.text = account
+  
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        if ( indexPath.row == 2 ) {
+            //Accounts selected
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "account_VC_ID") as? AccountTableViewController else {return}
+            vc.accountDelegate = self
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
+    
 
 }
+
+extension AddTxTableViewController: AccountTableViewDelegate {
+    
+    func didSelectAccount(account: String) {
+        accountField.text = account
+    }
+    
+}
+
+

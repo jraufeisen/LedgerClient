@@ -67,16 +67,14 @@ class LedgerManager: NSObject {
         let pat = "Assets:Budget:\(category)]\\s*[-0-9.]*"
         let testStr = LedgerManager.defaultJournal()
         let regex = try! NSRegularExpression(pattern: pat, options: [])
-        let matches = regex.matches(in: testStr, options: [], range: NSRange(location: 0, length: testStr.characters.count))
-        
+        let matches = regex.matches(in: testStr, options: [], range: NSRange(location: 0, length: testStr.count))
+
         var total: Decimal = Decimal(0)
         for match in matches {
             let range = match.range(at: 0)
             var found = String(testStr[testStr.index(testStr.startIndex, offsetBy: range.location)...])
-            //print(ffound)
             found = found.replacingOccurrences(of: "Assets:Budget:\(category)]", with: "")
             found = found.trimmingCharacters(in: .whitespaces)
-            //print("Gefunden: \(found) fertig")
             if let value = Decimal.init(string: found) {
                 total += value
             }
@@ -84,6 +82,27 @@ class LedgerManager: NSObject {
         }
         return total
         
+    }
+    
+    class func balance(account: String) -> Decimal {
+        let pat = "Assets:Banking:\(account)\\s*[-0-9.]\\s*[EUR]*"
+        let testStr = LedgerManager.defaultJournal()
+        let regex = try! NSRegularExpression(pattern: pat, options: [])
+        let matches = regex.matches(in: testStr, options: [], range: NSRange(location: 0, length: testStr.count))
+        var total: Decimal = Decimal(0)
+        for match in matches {
+            let range = match.range(at: 0)
+            var found = String(testStr[testStr.index(testStr.startIndex, offsetBy: range.location)...])
+            found = String.init(found.split(separator: "\n")[0])
+            found = found.replacingOccurrences(of: "Assets:Banking:\(account)", with: "")
+
+            found = found.trimmingCharacters(in: .whitespaces)
+            if let value = Decimal.init(string: found) {
+                total += value
+            }
+            
+        }
+        return total
     }
     
     
