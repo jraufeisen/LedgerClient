@@ -10,6 +10,7 @@ import UIKit
 
 class AccountTableViewController: UITableViewController {
 
+    let model = LedgerModel.defaultModel()
     let accounts = ["Bargeld","Girokonto","Kreditkarte", "Tagesgeld"]
     var accountDelegate: AccountTableViewDelegate?
     
@@ -37,11 +38,11 @@ class AccountTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell") else {return UITableViewCell()}
-        let account = accounts[indexPath.row]
+        let account = Account.init(name: "Assets:Banking:\(accounts[indexPath.row])")
         
         
-        cell.textLabel?.text = account
-        cell.detailTextLabel?.text = "\(LedgerManager.balance(account: account))"
+        cell.textLabel?.text = accounts[indexPath.row]
+        cell.detailTextLabel?.text = "\(model.balanceForAccount(acc: account))"
         
         return cell
     }
