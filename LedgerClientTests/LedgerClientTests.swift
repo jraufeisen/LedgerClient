@@ -47,7 +47,8 @@ class LedgerClientTests: XCTestCase {
         var date = Parser.parseDateFromLine(line: input)
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd" //Your date format
+        dateFormatter.timeZone = TimeZone.init(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy-MM-dd" //Your date format
         let trueDate = dateFormatter.date(from: "2017-10-08")! //according to date format your date string
         
         XCTAssert(date == trueDate)
@@ -82,23 +83,57 @@ class LedgerClientTests: XCTestCase {
         
         //Date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd" //Your date format
+        dateFormatter.timeZone = TimeZone.init(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy-MM-dd" //Your date format
         let trueDate = dateFormatter.date(from: "2017-10-08")! //according to date format your date string
-        print("This is the date of the test tranaction")
-        print(tx.date)
         XCTAssert(tx.date == trueDate)
         
-        //Data
-        print("These are the postings from tx parsing")
-        print(tx.postings)
+        //Data and equity check
+        let acc = Account.init(name: "Equity:AntiBudget:Sprit")
+        let val = Decimal.init(string: "48.27")!
+        XCTAssert(tx.postings.contains(where: {$0.0 == acc && $0.1 == val} ))
         
     }
+    
+    func testMultipleTXParsing() {
+        let input = """
+            2017/10/12 Pizza Hut
+                Assets:Banking:Bargeld      -8 EUR
+                [Assets:Budget:Lebensmittel]     -8 EUR
+                Ausgaben:Lebensmittel     8 EUR
+                Equity:AntiBudget:Lebensmittel
+
+
+            2017/10/13 Internet
+                Assets:Banking:Girokonto     -30 EUR
+                [Assets:Budget:Internet]         -30 EUR
+                Ausgaben:Internet        30 EUR
+                Equity:AntiBudget:Internet
+        """
+        let parser = Parser.init(ledgerString: input)
+        XCTAssert(parser.transactions.count == 2)
+        XCTAssert(parser.accounts.count == 8)
+        print(parser.transactions)
+        
+        
+        let pizzaTX = parser.transactions.first!
+        XCTAssert(pizzaTX.name == "Pizza Hut")
+
+        let internetTX = parser.transactions[1]
+        XCTAssert(internetTX.name == "Internet")
+        let acc = Account.init(name: "Equity:AntiBudget:Internet")
+        let val = Decimal.init(string: "30")!
+        XCTAssert(internetTX.postings.contains(where: {$0.0 == acc && $0.1 == val} ))
+
+        
+        
+    }
+    
+    
     
     func testPostingParsing() {
         let input = "   Assets:Banking:Kreditkarte      -48.27 EUR"
         let posting = Parser.parsePostingFromLine(line: input)!
-        print("This is the seperatly parsed posting")
-        print(posting)
         let key = Account.init(name: "Assets:Banking:Kreditkarte")
         let val = Decimal.init(string: "-48.27")!
         XCTAssert(posting == (key,val) )

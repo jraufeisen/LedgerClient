@@ -30,6 +30,11 @@ class Transaction: NSObject {
     let date: Date
     let postings: [ (Account,Decimal) ]
     
+    override var description: String {
+        return "Transaction \(name) on \(date) with postings \(postings)"
+    }
+    
+    
     init(name: String, date: Date, postings: [ (Account, Decimal) ]) {
         self.name = name
         self.date = date
@@ -40,9 +45,13 @@ class Transaction: NSObject {
     init?(ledgerString: String) {
         let cleanedLedger = ledgerString.trimmingCharacters(in: .whitespaces)
         
+        //Parse date from the 1st line
         guard let date = Parser.parseDateFromLine(line: cleanedLedger) else { return nil }
         self.date = date
        
+        //Parse name from the 1st line
+        guard let name = Parser.parseNameFromLine(line: cleanedLedger) else {return nil}
+        self.name = name
         
         var postings = [(Account, Decimal)]()
         var equityAccount: Account? = nil
@@ -71,7 +80,6 @@ class Transaction: NSObject {
             return nil
         }
         
-        self.name = ""
         self.postings = postings
         
         super.init()

@@ -34,9 +34,9 @@ class Parser: NSObject {
         for i in 0..<lines.count {
             let line = String(lines[i]).trimmingCharacters(in: .whitespaces)
             
-            //If a line does not start with a number, it will contain an account
             let firstCharacter = line[...line.index(line.startIndex, offsetBy: 0)]
             if Int(firstCharacter) == nil {
+                //If a line does not start with a number, it will contain an account
                 //This line contains an implicit declaration of an account
                 if let account = Account.init(fromline: line) { accountSet.insert(account) }
             } else {
@@ -45,15 +45,21 @@ class Parser: NSObject {
                     txBlockStart = i
                 } else {
                     let transactionString = lines[txBlockStart!..<i].joined(separator: "\n")
-                    guard let single_tx = Transaction.init(ledgerString: transactionString) else {continue}
-                    tx.append(single_tx)
+                    if let single_tx = Transaction.init(ledgerString: transactionString) {
+                        tx.append(single_tx)
+                    }
                     txBlockStart = i
                 }
-            
-                
             }
         
         }
+        
+        //The last transaction is not bounded below by any new date. So check it manually
+        let transactionString = lines[txBlockStart!...].joined(separator: "\n")
+        if let single_tx = Transaction.init(ledgerString: transactionString) {
+            tx.append(single_tx)
+        }
+
         
         
         self.accounts = Array.init(accountSet)
@@ -80,10 +86,12 @@ class Parser: NSObject {
         let endIndex = testStr.index(testStr.startIndex, offsetBy: range.location+range.length)
         let found = String(testStr[startIndex..<endIndex])
 
+        //Convert to Date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/mm/dd" //Your date format
-        let trueDate = dateFormatter.date(from: found) //according to date format your date string
-
+        dateFormatter.timeZone = TimeZone.init(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy/MM/dd" //Your date format
+        guard let trueDate = dateFormatter.date(from: found) else {return nil}//according to date format your date string
+            
         return trueDate
     }
     
@@ -121,7 +129,8 @@ class Parser: NSObject {
     */
     class func parseNameFromLine(line: String) -> String? {
         //Ignore leading (and trailing) whitespaces
-        let testStr = line.trimmingCharacters(in: .whitespaces)
+        var testStr = line.trimmingCharacters(in: .whitespaces)
+        testStr = String(testStr.split(separator: "\n").first!).trimmingCharacters(in: .whitespacesAndNewlines)
         //Match until an invalid character occurrs
         let pat = "[0-9,/]+"
         let regex = try! NSRegularExpression(pattern: pat, options: [])
