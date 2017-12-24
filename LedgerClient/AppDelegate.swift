@@ -17,12 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let ledger = LedgerManager.defaultJournal()
-        let parser = Parser.init(ledgerString: ledger)
+        let model = LedgerModel.defaultModel()
         
-        let balance = parser.balanceForAccount(acc: Account(name: "Ausgaben:Computer"))
-        print("Total balance for Lebensmittel \(balance)")
-        
+        for i in 0..<model.accounts.count {
+            print("Balance of \(model.balanceForAccount(acc: model.accounts[i])) on \(model.accounts[i])")
+        }
+        print(model.accounts)
         return true
     }
 

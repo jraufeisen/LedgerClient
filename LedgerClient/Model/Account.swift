@@ -48,7 +48,7 @@ class Account: NSObject {
         let found = String(testStr[startIndex..<endIndex])
 
         
-        self.name = found
+        self.name = found.trimmingCharacters(in: .whitespacesAndNewlines)
         super.init()
     }
 }
@@ -59,6 +59,7 @@ extension Account{
     override func isEqual(_ object: Any?) -> Bool {
         guard let other = object as? Account else {return false}
         return self.name == other.name
+
     }
     
 }

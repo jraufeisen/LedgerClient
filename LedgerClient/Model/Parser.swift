@@ -15,31 +15,45 @@ import UIKit
 
 class Parser: NSObject {
 
-    //All accounts in the given file
-    let accounts: [Account]
-    
-    //All transactions that occurred
-    let transactions: [Transaction]
-    
-    
-    init(ledgerString: String) {
-        
-        var accountSet = Set<Account>()
-        var tx = [Transaction]()
-        
+    /*
+    *   Given the contents of a ledger file, this method parses all implicitly declared accounts
+    *   May be combined with parseTransactions() to be faster.
+    *   But for now, this should suffice
+    */
+    class func parseAccounts(ledgerString: String) -> [Account] {
+        var accountSet = [Account]()
         let lines = ledgerString.split(separator: "\n")
-        //Marks from which line to which line there is a transaction block. Transaction blocks are marked by dates
+
+        for i in 0..<lines.count {
+            let line = String(lines[i]).trimmingCharacters(in: .whitespaces)
+            let firstCharacter = line[...line.index(line.startIndex, offsetBy: 0)]
+            
+            if Int(firstCharacter) == nil {
+                //If a line does not start with a number, it will contain an account
+                //This line contains an implicit declaration of an account
+                if let account = Account.init(fromline: line) {
+                    guard !accountSet.contains(account) else {continue}
+                    accountSet.append(account)
+                    
+                }
+            }
+        }
+        return accountSet
+    }
+    
+    /*
+     *   Given the contents of a ledger file, this method parses all transactions
+     */
+    class func parseTransactions(ledgerString: String) -> [Transaction] {
+        let lines = ledgerString.split(separator: "\n")
+        var tx = [Transaction]()
+
         var txBlockStart: Int? = nil
-        //Analyze each line for its own
         for i in 0..<lines.count {
             let line = String(lines[i]).trimmingCharacters(in: .whitespaces)
             
             let firstCharacter = line[...line.index(line.startIndex, offsetBy: 0)]
-            if Int(firstCharacter) == nil {
-                //If a line does not start with a number, it will contain an account
-                //This line contains an implicit declaration of an account
-                if let account = Account.init(fromline: line) { accountSet.insert(account) }
-            } else {
+            if Int(firstCharacter) != nil {
                 //This line contains a digit in the beginning and thus marks the start of a new transaction
                 if (txBlockStart == nil) {
                     txBlockStart = i
@@ -51,7 +65,7 @@ class Parser: NSObject {
                     txBlockStart = i
                 }
             }
-        
+            
         }
         
         //The last transaction is not bounded below by any new date. So check it manually
@@ -60,29 +74,11 @@ class Parser: NSObject {
             tx.append(single_tx)
         }
 
-        
-        
-        self.accounts = Array.init(accountSet)
-        self.transactions = tx
-
-        
-        super.init()
+        return tx
     }
     
     
-    //MARK: Calculations
-    
-    /*
-    *   After having parsed all relevant information this method calculates the overall balance of an account
-    */
-    func balanceForAccount(acc: Account) -> Decimal {
-        var sum: Decimal = 0
-        for tx in transactions {
-            sum += tx.valueForAccount(acc: acc)
-        }
-        return sum
-        
-    }
+   
     
     
     

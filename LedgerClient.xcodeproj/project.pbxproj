@@ -15,6 +15,9 @@
 		EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */; };
 		EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */; };
 		EBD8E2FA1F83B4F10041D1AF /* LedgerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */; };
+		EBDD1E891FEFD50800858F51 /* LedgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD1E881FEFD50800858F51 /* LedgerModel.swift */; };
+		EBDD1E8A1FEFD50B00858F51 /* LedgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD1E881FEFD50800858F51 /* LedgerModel.swift */; };
+		EBDD1E8B1FEFD73400858F51 /* LedgerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */; };
 		EBE792F01F86CBE70047C7ED /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */; };
 		EBF8D0711FEE8DF600CBF280 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0701FEE8DF600CBF280 /* Parser.swift */; };
 		EBF8D0731FEE8E0600CBF280 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0721FEE8E0600CBF280 /* Account.swift */; };
@@ -48,6 +51,7 @@
 		EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTxTableViewController.swift; sourceTree = "<group>"; };
 		EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerManager.swift; sourceTree = "<group>"; };
+		EBDD1E881FEFD50800858F51 /* LedgerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerModel.swift; sourceTree = "<group>"; };
 		EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EBF8D0701FEE8DF600CBF280 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		EBF8D0721FEE8E0600CBF280 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -103,7 +107,6 @@
 				EB1CC79C1F83784C00F2DDF8 /* LedgerClient.entitlements */,
 				EB1CC78A1F8377E400F2DDF8 /* AppDelegate.swift */,
 				EBFCEA771F84307000447E6E /* LedgerClient-Bridging-Header.h */,
-				EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */,
 				EBF8D06D1FEE8DD600CBF280 /* Model */,
 				EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */,
 				EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */,
@@ -120,6 +123,8 @@
 		EBF8D06D1FEE8DD600CBF280 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EBD8E2F91F83B4F10041D1AF /* LedgerManager.swift */,
+				EBDD1E881FEFD50800858F51 /* LedgerModel.swift */,
 				EBF8D0701FEE8DF600CBF280 /* Parser.swift */,
 				EBF8D0721FEE8E0600CBF280 /* Account.swift */,
 				EBF8D0741FEE8E1400CBF280 /* Transaction.swift */,
@@ -263,6 +268,7 @@
 				EBF8D0731FEE8E0600CBF280 /* Account.swift in Sources */,
 				EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */,
 				EBF8D0711FEE8DF600CBF280 /* Parser.swift in Sources */,
+				EBDD1E891FEFD50800858F51 /* LedgerModel.swift in Sources */,
 				EBF8D0751FEE8E1400CBF280 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,7 +279,9 @@
 			files = (
 				EBF8D0841FEE979F00CBF280 /* Parser.swift in Sources */,
 				EBF8D07D1FEE96F800CBF280 /* LedgerClientTests.swift in Sources */,
+				EBDD1E8B1FEFD73400858F51 /* LedgerManager.swift in Sources */,
 				EBF8D0861FEE97A400CBF280 /* Transaction.swift in Sources */,
+				EBDD1E8A1FEFD50B00858F51 /* LedgerModel.swift in Sources */,
 				EBF8D0851FEE97A200CBF280 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
