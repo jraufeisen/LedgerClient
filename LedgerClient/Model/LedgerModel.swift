@@ -49,11 +49,33 @@ class LedgerModel: NSObject {
      */
     func balanceForAccount(acc: Account) -> Decimal {
         var sum: Decimal = 0
+        for tx in transactions { sum += tx.valueForAccount(acc: acc)  }
+        return sum
+    }
+    
+    /*
+    *   Calculates the balance regarding all transactions that occured not later than the given date
+    */
+    func balanceUpToDate(acc:Account, date: Date) -> Decimal {
+        var sum: Decimal = 0
         for tx in transactions {
-            sum += tx.valueForAccount(acc: acc)
+            if tx.date <= date { sum += tx.valueForAccount(acc: acc) }
         }
         return sum
-        
     }
+    
+    /*
+     *   Calculates the balance regarding all transactions that occured not earlier than the given date
+     */
+    func balanceSinceDate(acc:Account, date: Date) -> Decimal {
+        var sum: Decimal = 0
+        for tx in transactions {
+            if tx.date >= date { sum += tx.valueForAccount(acc: acc) }
+        }
+        return sum
+    }
+    
+    
+    
     
 }

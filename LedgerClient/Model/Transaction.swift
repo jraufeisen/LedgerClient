@@ -92,7 +92,6 @@ class Transaction: NSObject {
             if key == acc { sum += val }
         }
         return sum
-        
     }
     
     

@@ -17,12 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+       /* let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.init(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy-MM-dd" //Your date format
+        let date = dateFormatter.date(from: "2017-12-01")! //according to date format your date string
+
+        print("Today is \(Date().firstDayOfCurrentMonth())")
         let model = LedgerModel.defaultModel()
-        
         for i in 0..<model.accounts.count {
-            print("Balance of \(model.balanceForAccount(acc: model.accounts[i])) on \(model.accounts[i])")
+            let acc = model.accounts[i]
+            print("Balance of \(model.balanceForAccount(acc: acc))/\(model.balanceUpToDate(acc: acc, date: date)) on \(acc)")
+            print("Spent \(model.balanceSinceDate(acc: acc, date: Date().firstDayOfCurrentMonth())) on \(acc)")
         }
-        print(model.accounts)
+        print(model.accounts)*/
         return true
     }
 
