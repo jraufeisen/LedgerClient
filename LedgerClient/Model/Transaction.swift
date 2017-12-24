@@ -85,7 +85,15 @@ class Transaction: NSObject {
         super.init()
     }
     
-    
+    //MARK: Business Logic
+    func valueForAccount(acc: Account) -> Decimal {
+        var sum: Decimal = 0
+        for (key, val) in postings {
+            if key == acc { sum += val }
+        }
+        return sum
+        
+    }
     
     
     

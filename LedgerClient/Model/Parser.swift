@@ -69,6 +69,26 @@ class Parser: NSObject {
         super.init()
     }
     
+    
+    //MARK: Calculations
+    
+    /*
+    *   After having parsed all relevant information this method calculates the overall balance of an account
+    */
+    func balanceForAccount(acc: Account) -> Decimal {
+        var sum: Decimal = 0
+        for tx in transactions {
+            sum += tx.valueForAccount(acc: acc)
+        }
+        return sum
+        
+    }
+    
+    
+    
+    //MARK: Parsing
+    
+    
     /*
     * Scans a line to find a date at the beginning
     * e.g.  2017/10/08 Tanken
