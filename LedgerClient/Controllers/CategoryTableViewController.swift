@@ -10,8 +10,9 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
 
+    //Instance variables
     let ledger = LedgerModel.defaultModel()
-    let categories = LedgerManager.categories()
+    let categories = LedgerModel.defaultModel().categories()
     var budget = [String:Decimal]()
     
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class CategoryTableViewController: UITableViewController {
         
         //Init values
         for cat in categories {
-            let amount = LedgerManager.availableBudget(category: cat)
+            let amount = ledger.budgetInCategory(category: cat)
             budget[cat] = amount
         }
         
@@ -44,7 +45,6 @@ class CategoryTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      //  guard let cell = tableView.dequeueReusableCell(withIdentifier: "categoryID", for: indexPath) as? BudgetTableViewCell else {return UITableViewCell()}
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryID") as! BudgetTableViewCell
         

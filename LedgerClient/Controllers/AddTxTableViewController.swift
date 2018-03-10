@@ -26,9 +26,9 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         
         let reverse_value = value.range(of: "-") == nil ? "-" + value : value.replacingOccurrences(of: "-", with: "")
         
-        let string_contents = LedgerManager.defaultJournal()
+        let string_contents = LedgerModel.defaultJournal
     
-        let date = LedgerManager.dateString(date: Date())
+        let date = LedgerModel.dateString(date: Date())
         
         let append = """
         
@@ -41,7 +41,7 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         """
         let together = string_contents + "\n\n" + append
         do {
-            try together.write(to: LedgerManager.defaultURL(), atomically: true, encoding: String.Encoding.utf8)
+            try together.write(to: LedgerModel.defaultURL, atomically: true, encoding: String.Encoding.utf8)
             clearInputs()
         } catch {
             print("Could not write")

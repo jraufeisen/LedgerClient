@@ -26,7 +26,7 @@ class LedgerModel: NSObject {
     }
     
     class var defaultJournal: String {
-        let found = FileManager.default.contents(atPath: LedgerManager.defaultURL().path)!
+        let found = FileManager.default.contents(atPath: LedgerModel.defaultURL.path)!
         guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return ""}
         return string_contents
     }
@@ -41,8 +41,36 @@ class LedgerModel: NSObject {
         super.init()
     }
     
-    //MARK: Calculations
+    //MARK: Extract information
     
+    ///Returns all category names for the budget
+    func categories() -> [String] {
+        
+        var categories = [String]()
+        
+        for account in accounts {
+            let accountName = account.name
+            if accountName.contains("Assets:Budget:") { categories.append(accountName.replacingOccurrences(of: "Assets:Budget:", with: "")) }
+        }
+        
+        return categories
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    //MARK: Calculations
+    /*
+     *   After having parsed all relevant information this method calculates the budget in one specific category.
+     */
+    func budgetInCategory(category: String) -> Decimal {
+        return balanceForAccount(acc: Account.init(name: "Assets:Budget:\(category)"))
+    }
+
 
     /*
      *   After having parsed all relevant information this method calculates the overall balance of an account
@@ -75,7 +103,16 @@ class LedgerModel: NSObject {
         return sum
     }
     
+    //MARK: Formatting helper functions
     
+    /**
+     Returns a string describing a date in the correct format (e.g. 2016/10/05).
+    */
+    class func dateString(date: Date) -> String {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dateFormatter.string(from: date)
+    }
     
     
 }

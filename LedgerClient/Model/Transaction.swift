@@ -42,6 +42,10 @@ class Transaction: NSObject {
         super.init()
     }
     
+    
+    /*
+     Initializes a single trnsaction described in ledger-syntax
+    */
     init?(ledgerString: String) {
         let cleanedLedger = ledgerString.trimmingCharacters(in: .whitespaces)
         
@@ -89,7 +93,8 @@ class Transaction: NSObject {
     func valueForAccount(acc: Account) -> Decimal {
         var sum: Decimal = 0
         for (key, val) in postings {
-            if key == acc { sum += val }
+            //Important: Use .contains here, cause asking for "Assets:Budget" should also consider "Assets:Budget:Clothes"
+            if key.name.contains(acc.name) { sum += val }
         }
         return sum
     }

@@ -50,8 +50,8 @@ extension TransferTableViewController {
         guard !(to.isEmpty) else {return}
 
         
-        let string_contents = LedgerManager.defaultJournal()
-        let date = LedgerManager.dateString(date: Date())
+        let string_contents = LedgerModel.defaultJournal
+        let date = LedgerModel.dateString(date: Date())
         let append = """
         
         \(date) Transfer
@@ -61,7 +61,7 @@ extension TransferTableViewController {
         """
         let together = string_contents + "\n\n" + append
         do {
-            try together.write(to: LedgerManager.defaultURL(), atomically: true, encoding: String.Encoding.utf8)
+            try together.write(to: LedgerModel.defaultURL, atomically: true, encoding: String.Encoding.utf8)
             clearInputs()
         } catch {
             print("Could not write")
