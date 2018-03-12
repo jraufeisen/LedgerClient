@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialHB.ttc">
+            <string>ArialHebrew-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="LedgerWatch" customModuleProvider="target">
+                    <items>
+                        <button width="1" height="50" alignment="left" title="Income" id="7Fw-xG-pm6">
+                            <color key="backgroundColor" red="0.0" green="0.68713296980000005" blue="0.26746015099999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <action selector="createNewIncome" destination="AgC-eL-Hgc" id="Ihn-5Z-sCD"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="50" alignment="left" title="Expense" id="Gzy-MC-1rg">
+                            <color key="backgroundColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <action selector="createNewExpense" destination="AgC-eL-Hgc" id="C4Y-Fs-lU2"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="KNR-h2-7GX"/>
+                        <table alignment="left" id="VQ2-hm-CBz">
+                            <items>
+                                <tableRow identifier="budgetCell" id="YeR-Ni-JGd">
+                                    <group key="rootItem" width="1" alignment="left" id="sNr-Ph-hpb"/>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--enterNumber-->
+        <scene sceneID="055-h7-ggE">
+            <objects>
+                <controller identifier="enterNumber" id="9Pn-eR-ufi" customClass="EnterNumberInterfaceController" customModule="LedgerWatch_Extension">
+                    <items>
+                        <label width="135" height="153" alignment="left" text="0 €" textAlignment="center" id="V8I-oV-qQw">
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="Ecr-im-L4U" userLabel="Tap">
+                                    <connections>
+                                        <action selector="recognizedTap:" destination="9Pn-eR-ufi" id="Zpp-0V-QvK"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                                <swipeGestureRecognizer id="gpB-LZ-gRD" userLabel="Right">
+                                    <connections>
+                                        <action selector="swipedRight:" destination="9Pn-eR-ufi" id="Gpx-UT-V3e"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                                <swipeGestureRecognizer direction="2" id="35r-RJ-Oqq" userLabel="Left">
+                                    <connections>
+                                        <action selector="swipedLeft:" destination="9Pn-eR-ufi" id="pTx-9N-hf5"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                                <swipeGestureRecognizer direction="8" id="5Vs-sW-4GR" userLabel="Down">
+                                    <connections>
+                                        <action selector="swipedDown:" destination="9Pn-eR-ufi" id="MhF-YL-8is"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                                <swipeGestureRecognizer direction="4" id="hVT-T4-awz" userLabel="Up">
+                                    <connections>
+                                        <action selector="swipedUp:" destination="9Pn-eR-ufi" id="Dzw-Aw-0pB"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                            </gestureRecognizers>
+                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="30"/>
+                        </label>
+                    </items>
+                    <menu key="menu" id="Eke-w0-tXK">
+                        <items>
+                            <menuItem title="Menu Item" icon="block" id="CiH-hN-Yym"/>
+                            <menuItem title="Add" icon="add" id="DvX-On-4Ya"/>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="numberLabel" destination="V8I-oV-qQw" id="yv6-ci-w7v"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="507" y="345"/>
+        </scene>
+        <!--accountSelection-->
+        <scene sceneID="Kvu-bE-9mi">
+            <objects>
+                <controller identifier="accountSelection" id="ksn-Bs-Re4" customClass="AccountSelectionController" customModule="LedgerWatch_Extension">
+                    <items>
+                        <label width="1" alignment="left" text="Income of XY€" id="l2E-DM-TOy"/>
+                        <separator alignment="left" id="BXc-LL-VxC"/>
+                        <table alignment="left" id="s2e-Hh-0jv">
+                            <items>
+                                <tableRow identifier="accountRow" id="1vI-AH-Od1" customClass="AccountRow" customModule="LedgerWatch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="6Dq-tv-KfB">
+                                        <items>
+                                            <label width="1" height="1" alignment="center" verticalAlignment="center" text="Account 1" id="huQ-Qi-G4Z"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="label" destination="huQ-Qi-G4Z" id="Z0R-68-aN7"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="accountsTable" destination="s2e-Hh-0jv" id="6wG-uq-0gm"/>
+                        <outlet property="summaryLabel" destination="l2E-DM-TOy" id="KYY-9I-KCs"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="739" y="348.5"/>
+        </scene>
+        <!--confirmationController-->
+        <scene sceneID="Cru-fR-uVx">
+            <objects>
+                <controller identifier="confirmationController" id="ebg-RW-d3a" customClass="ConfirmationController" customModule="LedgerWatch_Extension">
+                    <items>
+                        <label width="136" height="153" alignment="left" text="Result pending" textAlignment="center" id="GcZ-FW-4U4"/>
+                    </items>
+                    <connections>
+                        <outlet property="confirmationLabel" destination="GcZ-FW-4U4" id="674-GU-KiY"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1016" y="358"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="LedgerWatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

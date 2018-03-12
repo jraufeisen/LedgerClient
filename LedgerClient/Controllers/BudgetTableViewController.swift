@@ -12,8 +12,7 @@ class BudgetTableViewController: UITableViewController {
 
     //Instance variables
     let ledger = LedgerModel.defaultModel()
-    let categories = LedgerModel.defaultModel().categories()
-    var budget = [String:Decimal]()
+    var budget = [(Account, Decimal)]()
 
     //Constants
     let budgetAccount = Account.init(name: "Assets:Budget")
@@ -23,20 +22,18 @@ class BudgetTableViewController: UITableViewController {
         super.viewDidLoad()
 
         //Init values
-        for cat in categories {
-            let amount = ledger.budgetInCategory(category: cat)
-            budget[cat] = amount
-        }
-
         let budgeted = ledger.balanceForAccount(acc: budgetAccount)
         let owned = ledger.balanceForAccount(acc: moneyAccount)
 
         
-        self.title = "You have \(owned - budgeted)€ to budget"
+        self.navigationItem.title = "You have \(owned - budgeted)€ to budget"
         
-        print("You have budgeted \(ledger.balanceForAccount(acc: budgetAccount))€")
-        print("You own  \(ledger.balanceForAccount(acc: moneyAccount))€")
-
+//        print("This is your budget: \(ledger.budgetAtMonth(date: Date()))")
+    
+        if let todaysBudget = ledger.budgetAtMonth(date: Date()) {
+            budget = todaysBudget
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +47,8 @@ class BudgetTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+
+        return budget.count
     }
 
     
@@ -58,15 +56,12 @@ class BudgetTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath)
 
         //Set budget text
-        let category = categories[indexPath.row]
-        cell.textLabel?.text = category
+        let category = budget[indexPath.row].0
+        cell.textLabel?.text = category.name.replacingOccurrences(of: "Assets:Budget:", with: "")
 
         //Set amount of money in this budget category
-        if let amount = budget[category] {
-            cell.detailTextLabel?.text = "\(amount) €"
-        } else {
-            cell.detailTextLabel?.text = "NaN €"
-        }
+        cell.detailTextLabel?.text = "\(budget[indexPath.row].1) €"
+        
 
         
         

@@ -11,22 +11,22 @@ import UIKit
 class LedgerModel: NSObject {
 
     
-    //All accounts in the given file
+    ///All accounts in the given file
     let accounts: [Account]
     
-    //All transactions that occurred
+    ///All transactions that occurred
     let transactions: [Transaction]
 
     
     //MARK: Initializers
     class var defaultURL: URL {
-        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {return URL.init(fileURLWithPath: "")}
+        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {print("iCloud URL not found");return URL.init(fileURLWithPath: "")}
         let finance_URL = iCloudDocumentsURL.appendingPathComponent("/finances.txt")
         return finance_URL
     }
     
     class var defaultJournal: String {
-        let found = FileManager.default.contents(atPath: LedgerModel.defaultURL.path)!
+        guard let found = FileManager.default.contents(atPath: LedgerModel.defaultURL.path) else {print("Ledger file not found");return ""}
         guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return ""}
         return string_contents
     }
@@ -45,22 +45,71 @@ class LedgerModel: NSObject {
     
     ///Returns all category names for the budget
     func categories() -> [String] {
-        
         var categories = [String]()
         
         for account in accounts {
             let accountName = account.name
             if accountName.contains("Assets:Budget:") { categories.append(accountName.replacingOccurrences(of: "Assets:Budget:", with: "")) }
         }
-        
+
         return categories
         
     }
 
+ 
+    
+    /**
+     Returns the budget for the month specified by the given date.
+     A budget consists of different categories and the corresponing envelope money budgeted.
+     May return nil, if there is no budget for the specified month
+     
+     Extra documentation: Inside the ledger file, each month's budget is labelled like "Budget 03/2018"
+     */
+    func budgetAtMonth(date: Date) -> [(Account,Decimal)]? {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "MM/yyyy"
+        let monthString = dateFormatter.string(from: date)
+        
+        let budgettingTransaction = transactions.filter{ $0.name.contains("Budget \(monthString)") }
+        
+        return budgettingTransaction.first?.postings
+    }
     
     
+    //MARK: Enter new data
     
+    ///Appends income to the current ledger file. Returns YES on success
     
+    func postIncome(acc: Account, value: String) -> Bool {
+        guard let income = Float(value.replacingOccurrences(of: ",", with: ".")) else {print("Not a valid number");return false}
+        guard income > 0 else {print("Not a positive income!");return false}
+        
+        let date = LedgerModel.dateString(date: Date())
+        let incomeStatement = """
+        
+        \(date) Transaktion
+        \t\(acc.name) \t \(value) EUR
+        \tEquity:Income
+        
+        """
+        
+        return appendToLedger(appendingString: incomeStatement)
+        
+    }
+    
+    ///Appends string to the current ledger file. Returns YES on success
+    private func appendToLedger(appendingString: String) -> Bool {
+        let together = LedgerModel.defaultJournal + "\n" + appendingString
+        do {
+            try together.write(to: LedgerModel.defaultURL, atomically: true, encoding: String.Encoding.utf8)
+            return true
+        } catch {
+            print("Could not write to ledgerFile")
+            return false
+        }
+        
+
+    }
     
     
     //MARK: Calculations

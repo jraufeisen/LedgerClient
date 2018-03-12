@@ -69,7 +69,8 @@ class Parser: NSObject {
         }
         
         //The last transaction is not bounded below by any new date. So check it manually
-        let transactionString = lines[txBlockStart!...].joined(separator: "\n")
+        guard let txStart = txBlockStart else {return tx}
+        let transactionString = lines[txStart...].joined(separator: "\n")
         if let single_tx = Transaction.init(ledgerString: transactionString) {
             tx.append(single_tx)
         }

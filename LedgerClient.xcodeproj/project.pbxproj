@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0A8B8F2056BAB700B0E138 /* EnterNumberInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A8B8D2056BA9D00B0E138 /* EnterNumberInterfaceController.swift */; };
+		EB0A8B912056C7AB00B0E138 /* AccountSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A8B902056C7AB00B0E138 /* AccountSelectionController.swift */; };
+		EB0A8B932056CAE400B0E138 /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A8B922056CAE400B0E138 /* AccountRow.swift */; };
+		EB0A8B942056CD4100B0E138 /* LedgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD1E881FEFD50800858F51 /* LedgerModel.swift */; };
+		EB0A8B952056CD5000B0E138 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0741FEE8E1400CBF280 /* Transaction.swift */; };
+		EB0A8B962056CD5200B0E138 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0721FEE8E0600CBF280 /* Account.swift */; };
+		EB0A8B972056CD7300B0E138 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0701FEE8DF600CBF280 /* Parser.swift */; };
+		EB0A8B992056D45200B0E138 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0A8B982056D45200B0E138 /* CloudKit.framework */; };
+		EB0A8B9D2056DCD800B0E138 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0A8B9C2056DCD800B0E138 /* WatchConnectivity.framework */; };
+		EB0A8BA52056E8B600B0E138 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A8BA12056E45D00B0E138 /* WatchSessionManager.swift */; };
+		EB0A8BA62056E8B800B0E138 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A8BA12056E45D00B0E138 /* WatchSessionManager.swift */; };
+		EB0A8BA92056F4BF00B0E138 /* ConfirmationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A8BA72056F4B900B0E138 /* ConfirmationController.swift */; };
 		EB1CC78B1F8377E400F2DDF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1CC78A1F8377E400F2DDF8 /* AppDelegate.swift */; };
 		EB1CC7901F8377E400F2DDF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */; };
 		EB1CC7921F8377E400F2DDF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB1CC7911F8377E400F2DDF8 /* Assets.xcassets */; };
@@ -16,6 +28,15 @@
 		EB610E0120529FCA00A0ED37 /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB610E0020529FCA00A0ED37 /* BudgetTableViewController.swift */; };
 		EB8A7DC11FEFF112003D0864 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A7DC01FEFF112003D0864 /* BudgetTableViewCell.swift */; };
 		EB8A7DC41FEFF44A003D0864 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A7DC31FEFF44A003D0864 /* Date+Utilities.swift */; };
+		EBCC6BD020558640005120B2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBCC6BCE20558640005120B2 /* Interface.storyboard */; };
+		EBCC6BD220558640005120B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBCC6BD120558640005120B2 /* Assets.xcassets */; };
+		EBCC6BD920558640005120B2 /* LedgerWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EBCC6BD820558640005120B2 /* LedgerWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EBCC6BDE20558640005120B2 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC6BDD20558640005120B2 /* InterfaceController.swift */; };
+		EBCC6BE020558640005120B2 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC6BDF20558640005120B2 /* ExtensionDelegate.swift */; };
+		EBCC6BE220558640005120B2 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC6BE120558640005120B2 /* NotificationController.swift */; };
+		EBCC6BE420558640005120B2 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC6BE320558640005120B2 /* ComplicationController.swift */; };
+		EBCC6BE620558640005120B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBCC6BE520558640005120B2 /* Assets.xcassets */; };
+		EBCC6BEB20558640005120B2 /* LedgerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBCC6BCC20558640005120B2 /* LedgerWatch.app */; };
 		EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */; };
 		EBDD1E891FEFD50800858F51 /* LedgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD1E881FEFD50800858F51 /* LedgerModel.swift */; };
 		EBDD1E8A1FEFD50B00858F51 /* LedgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD1E881FEFD50800858F51 /* LedgerModel.swift */; };
@@ -31,6 +52,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EBCC6BDA20558640005120B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB1CC77F1F8377E400F2DDF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBCC6BD720558640005120B2;
+			remoteInfo = "LedgerWatch Extension";
+		};
+		EBCC6BE920558640005120B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB1CC77F1F8377E400F2DDF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBCC6BCB20558640005120B2;
+			remoteInfo = LedgerWatch;
+		};
 		EBF8D07F1FEE96F800CBF280 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB1CC77F1F8377E400F2DDF8 /* Project object */;
@@ -40,7 +75,40 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EBCC6BF120558640005120B2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EBCC6BD920558640005120B2 /* LedgerWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCC6BF320558640005120B2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EBCC6BEB20558640005120B2 /* LedgerWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		EB0A8B8D2056BA9D00B0E138 /* EnterNumberInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberInterfaceController.swift; sourceTree = "<group>"; };
+		EB0A8B902056C7AB00B0E138 /* AccountSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSelectionController.swift; sourceTree = "<group>"; };
+		EB0A8B922056CAE400B0E138 /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
+		EB0A8B982056D45200B0E138 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		EB0A8B9A2056DCCE00B0E138 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		EB0A8B9C2056DCD800B0E138 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		EB0A8BA12056E45D00B0E138 /* WatchSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		EB0A8BA72056F4B900B0E138 /* ConfirmationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationController.swift; sourceTree = "<group>"; };
 		EB1CC7871F8377E400F2DDF8 /* LedgerClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LedgerClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1CC78A1F8377E400F2DDF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB1CC78F1F8377E400F2DDF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +121,19 @@
 		EB610E0020529FCA00A0ED37 /* BudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		EB8A7DC01FEFF112003D0864 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		EB8A7DC31FEFF44A003D0864 /* Date+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
+		EB8F83B920558D1D002AFDE4 /* LedgerWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LedgerWatch.entitlements; sourceTree = "<group>"; };
+		EBCC6BCC20558640005120B2 /* LedgerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LedgerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBCC6BCF20558640005120B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		EBCC6BD120558640005120B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBCC6BD320558640005120B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBCC6BD820558640005120B2 /* LedgerWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LedgerWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBCC6BDD20558640005120B2 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		EBCC6BDF20558640005120B2 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		EBCC6BE120558640005120B2 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		EBCC6BE320558640005120B2 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		EBCC6BE520558640005120B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBCC6BE720558640005120B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBCC6BE820558640005120B2 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EBDD1E881FEFD50800858F51 /* LedgerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerModel.swift; sourceTree = "<group>"; };
 		EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +152,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB0A8B9D2056DCD800B0E138 /* WatchConnectivity.framework in Frameworks */,
 				EBFCEA761F842EAB00447E6E /* libiconv.tbd in Frameworks */,
+				EB0A8B992056D45200B0E138 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCC6BD520558640005120B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +180,8 @@
 			children = (
 				EB1CC7891F8377E400F2DDF8 /* LedgerClient */,
 				EBF8D07B1FEE96F800CBF280 /* LedgerClientTests */,
+				EBCC6BCD20558640005120B2 /* LedgerWatch */,
+				EBCC6BDC20558640005120B2 /* LedgerWatch Extension */,
 				EB1CC7881F8377E400F2DDF8 /* Products */,
 				EBFCEA741F842EAA00447E6E /* Frameworks */,
 			);
@@ -100,6 +192,8 @@
 			children = (
 				EB1CC7871F8377E400F2DDF8 /* LedgerClient.app */,
 				EBF8D07A1FEE96F800CBF280 /* LedgerClientTests.xctest */,
+				EBCC6BCC20558640005120B2 /* LedgerWatch.app */,
+				EBCC6BD820558640005120B2 /* LedgerWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +203,7 @@
 			children = (
 				EB1CC79C1F83784C00F2DDF8 /* LedgerClient.entitlements */,
 				EBFCEA771F84307000447E6E /* LedgerClient-Bridging-Header.h */,
+				EB0A8BA12056E45D00B0E138 /* WatchSessionManager.swift */,
 				EB1CC78A1F8377E400F2DDF8 /* AppDelegate.swift */,
 				EB8A7DC21FEFF117003D0864 /* Views */,
 				EBF8D06D1FEE8DD600CBF280 /* Model */,
@@ -150,6 +245,35 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		EBCC6BCD20558640005120B2 /* LedgerWatch */ = {
+			isa = PBXGroup;
+			children = (
+				EB8F83B920558D1D002AFDE4 /* LedgerWatch.entitlements */,
+				EBCC6BCE20558640005120B2 /* Interface.storyboard */,
+				EBCC6BD120558640005120B2 /* Assets.xcassets */,
+				EBCC6BD320558640005120B2 /* Info.plist */,
+			);
+			path = LedgerWatch;
+			sourceTree = "<group>";
+		};
+		EBCC6BDC20558640005120B2 /* LedgerWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EB0A8B922056CAE400B0E138 /* AccountRow.swift */,
+				EBCC6BDD20558640005120B2 /* InterfaceController.swift */,
+				EB0A8B8D2056BA9D00B0E138 /* EnterNumberInterfaceController.swift */,
+				EB0A8B902056C7AB00B0E138 /* AccountSelectionController.swift */,
+				EB0A8BA72056F4B900B0E138 /* ConfirmationController.swift */,
+				EBCC6BDF20558640005120B2 /* ExtensionDelegate.swift */,
+				EBCC6BE120558640005120B2 /* NotificationController.swift */,
+				EBCC6BE320558640005120B2 /* ComplicationController.swift */,
+				EBCC6BE520558640005120B2 /* Assets.xcassets */,
+				EBCC6BE720558640005120B2 /* Info.plist */,
+				EBCC6BE820558640005120B2 /* PushNotificationPayload.apns */,
+			);
+			path = "LedgerWatch Extension";
+			sourceTree = "<group>";
+		};
 		EBF8D06D1FEE8DD600CBF280 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +297,9 @@
 		EBFCEA741F842EAA00447E6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB0A8B9C2056DCD800B0E138 /* WatchConnectivity.framework */,
+				EB0A8B9A2056DCCE00B0E138 /* WatchKit.framework */,
+				EB0A8B982056D45200B0E138 /* CloudKit.framework */,
 				EBFCEA751F842EAB00447E6E /* libiconv.tbd */,
 			);
 			name = Frameworks;
@@ -188,15 +315,51 @@
 				EB1CC7831F8377E400F2DDF8 /* Sources */,
 				EB1CC7841F8377E400F2DDF8 /* Frameworks */,
 				EB1CC7851F8377E400F2DDF8 /* Resources */,
+				EBCC6BF320558640005120B2 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EBCC6BEA20558640005120B2 /* PBXTargetDependency */,
 			);
 			name = LedgerClient;
 			productName = LedgerClient;
 			productReference = EB1CC7871F8377E400F2DDF8 /* LedgerClient.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EBCC6BCB20558640005120B2 /* LedgerWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBCC6BF220558640005120B2 /* Build configuration list for PBXNativeTarget "LedgerWatch" */;
+			buildPhases = (
+				EBCC6BCA20558640005120B2 /* Resources */,
+				EBCC6BF120558640005120B2 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBCC6BDB20558640005120B2 /* PBXTargetDependency */,
+			);
+			name = LedgerWatch;
+			productName = LedgerWatch;
+			productReference = EBCC6BCC20558640005120B2 /* LedgerWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		EBCC6BD720558640005120B2 /* LedgerWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBCC6BF020558640005120B2 /* Build configuration list for PBXNativeTarget "LedgerWatch Extension" */;
+			buildPhases = (
+				EBCC6BD420558640005120B2 /* Sources */,
+				EBCC6BD520558640005120B2 /* Frameworks */,
+				EBCC6BD620558640005120B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LedgerWatch Extension";
+			productName = "LedgerWatch Extension";
+			productReference = EBCC6BD820558640005120B2 /* LedgerWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		EBF8D0791FEE96F800CBF280 /* LedgerClientTests */ = {
 			isa = PBXNativeTarget;
@@ -232,10 +395,28 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
+					};
+					EBCC6BCB20558640005120B2 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = YLJFWRHN2U;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					EBCC6BD720558640005120B2 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = YLJFWRHN2U;
+						ProvisioningStyle = Automatic;
 					};
 					EBF8D0791FEE96F800CBF280 = {
 						CreatedOnToolsVersion = 9.2;
@@ -260,6 +441,8 @@
 			targets = (
 				EB1CC7861F8377E400F2DDF8 /* LedgerClient */,
 				EBF8D0791FEE96F800CBF280 /* LedgerClientTests */,
+				EBCC6BCB20558640005120B2 /* LedgerWatch */,
+				EBCC6BD720558640005120B2 /* LedgerWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -272,6 +455,23 @@
 				EB1CC7951F8377E400F2DDF8 /* LaunchScreen.storyboard in Resources */,
 				EB1CC7921F8377E400F2DDF8 /* Assets.xcassets in Resources */,
 				EB1CC7901F8377E400F2DDF8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCC6BCA20558640005120B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCC6BD220558640005120B2 /* Assets.xcassets in Resources */,
+				EBCC6BD020558640005120B2 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCC6BD620558640005120B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCC6BE620558640005120B2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +497,31 @@
 				EBD8E2F81F83B4D40041D1AF /* CategoryTableViewController.swift in Sources */,
 				EBF8D0711FEE8DF600CBF280 /* Parser.swift in Sources */,
 				EB610E0120529FCA00A0ED37 /* BudgetTableViewController.swift in Sources */,
+				EB0A8BA52056E8B600B0E138 /* WatchSessionManager.swift in Sources */,
 				EB8A7DC41FEFF44A003D0864 /* Date+Utilities.swift in Sources */,
 				EBDD1E891FEFD50800858F51 /* LedgerModel.swift in Sources */,
 				EB8A7DC11FEFF112003D0864 /* BudgetTableViewCell.swift in Sources */,
 				EBF8D0751FEE8E1400CBF280 /* Transaction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCC6BD420558640005120B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB0A8B942056CD4100B0E138 /* LedgerModel.swift in Sources */,
+				EB0A8BA92056F4BF00B0E138 /* ConfirmationController.swift in Sources */,
+				EB0A8B972056CD7300B0E138 /* Parser.swift in Sources */,
+				EBCC6BE220558640005120B2 /* NotificationController.swift in Sources */,
+				EB0A8B8F2056BAB700B0E138 /* EnterNumberInterfaceController.swift in Sources */,
+				EBCC6BE420558640005120B2 /* ComplicationController.swift in Sources */,
+				EBCC6BE020558640005120B2 /* ExtensionDelegate.swift in Sources */,
+				EB0A8BA62056E8B800B0E138 /* WatchSessionManager.swift in Sources */,
+				EB0A8B962056CD5200B0E138 /* Account.swift in Sources */,
+				EB0A8B912056C7AB00B0E138 /* AccountSelectionController.swift in Sources */,
+				EBCC6BDE20558640005120B2 /* InterfaceController.swift in Sources */,
+				EB0A8B932056CAE400B0E138 /* AccountRow.swift in Sources */,
+				EB0A8B952056CD5000B0E138 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +540,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EBCC6BDB20558640005120B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBCC6BD720558640005120B2 /* LedgerWatch Extension */;
+			targetProxy = EBCC6BDA20558640005120B2 /* PBXContainerItemProxy */;
+		};
+		EBCC6BEA20558640005120B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBCC6BCB20558640005120B2 /* LedgerWatch */;
+			targetProxy = EBCC6BE920558640005120B2 /* PBXContainerItemProxy */;
+		};
 		EBF8D0801FEE96F800CBF280 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EB1CC7861F8377E400F2DDF8 /* LedgerClient */;
@@ -341,6 +572,14 @@
 				EB1CC7941F8377E400F2DDF8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EBCC6BCE20558640005120B2 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBCC6BCF20558640005120B2 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -489,6 +728,98 @@
 			};
 			name = Release;
 		};
+		EBCC6BEC20558640005120B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = LedgerWatch/LedgerWatch.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = LedgerWatch_Extension;
+				INFOPLIST_FILE = LedgerWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.LedgerClient.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		EBCC6BED20558640005120B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = LedgerWatch/LedgerWatch.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = LedgerWatch_Extension;
+				INFOPLIST_FILE = LedgerWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.LedgerClient.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		EBCC6BEE20558640005120B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "LedgerWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.LedgerClient.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		EBCC6BEF20558640005120B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "LedgerWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.LedgerClient.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
 		EBF8D0821FEE96F800CBF280 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -548,6 +879,24 @@
 			buildConfigurations = (
 				EB1CC79A1F8377E400F2DDF8 /* Debug */,
 				EB1CC79B1F8377E400F2DDF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBCC6BF020558640005120B2 /* Build configuration list for PBXNativeTarget "LedgerWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBCC6BEE20558640005120B2 /* Debug */,
+				EBCC6BEF20558640005120B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBCC6BF220558640005120B2 /* Build configuration list for PBXNativeTarget "LedgerWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBCC6BEC20558640005120B2 /* Debug */,
+				EBCC6BED20558640005120B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
