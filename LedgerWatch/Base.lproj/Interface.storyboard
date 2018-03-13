@@ -8,39 +8,27 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ArialHB.ttc">
-            <string>ArialHebrew-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
-        <!--Interface Controller-->
+        <!--mainMenuController-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="LedgerWatch" customModuleProvider="target">
+                <controller identifier="mainMenuController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="LedgerWatch" customModuleProvider="target">
                     <items>
-                        <button width="1" height="50" alignment="left" title="Income" id="7Fw-xG-pm6">
+                        <button width="1" height="0.5" alignment="center" title="Income" id="7Fw-xG-pm6">
                             <color key="backgroundColor" red="0.0" green="0.68713296980000005" blue="0.26746015099999998" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
                                 <action selector="createNewIncome" destination="AgC-eL-Hgc" id="Ihn-5Z-sCD"/>
                             </connections>
                         </button>
-                        <button width="1" height="50" alignment="left" title="Expense" id="Gzy-MC-1rg">
+                        <table alignment="left" id="VQ2-hm-CBz"/>
+                        <button width="1" height="0.5" alignment="center" verticalAlignment="bottom" title="Expense" id="Gzy-MC-1rg">
                             <color key="backgroundColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
                                 <action selector="createNewExpense" destination="AgC-eL-Hgc" id="C4Y-Fs-lU2"/>
                             </connections>
                         </button>
-                        <separator alignment="left" id="KNR-h2-7GX"/>
-                        <table alignment="left" id="VQ2-hm-CBz">
-                            <items>
-                                <tableRow identifier="budgetCell" id="YeR-Ni-JGd">
-                                    <group key="rootItem" width="1" alignment="left" id="sNr-Ph-hpb"/>
-                                </tableRow>
-                            </items>
-                        </table>
                     </items>
                 </controller>
             </objects>
@@ -51,7 +39,7 @@
             <objects>
                 <controller identifier="enterNumber" id="9Pn-eR-ufi" customClass="EnterNumberInterfaceController" customModule="LedgerWatch_Extension">
                     <items>
-                        <label width="135" height="153" alignment="left" text="0 €" textAlignment="center" id="V8I-oV-qQw">
+                        <label width="135" height="153" alignment="left" text="0 €" textAlignment="center" minimumScaleFactor="0.59999999999999998" id="V8I-oV-qQw">
                             <gestureRecognizers>
                                 <tapGestureRecognizer id="Ecr-im-L4U" userLabel="Tap">
                                     <connections>
@@ -79,7 +67,7 @@
                                     </connections>
                                 </swipeGestureRecognizer>
                             </gestureRecognizers>
-                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="30"/>
+                            <fontDescription key="font" type="system" pointSize="30"/>
                         </label>
                     </items>
                     <menu key="menu" id="Eke-w0-tXK">
@@ -123,21 +111,67 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="739" y="348.5"/>
+            <point key="canvasLocation" x="774" y="345"/>
+        </scene>
+        <!--budgetController-->
+        <scene sceneID="85l-hE-au0">
+            <objects>
+                <controller identifier="budgetController" id="bMz-lt-20R" customClass="BudgetController" customModule="LedgerWatch_Extension">
+                    <items>
+                        <table alignment="left" id="xwn-b7-LXB">
+                            <items>
+                                <tableRow identifier="budgetRow" id="iDZ-eN-uqy" customClass="BudgetRow" customModule="LedgerWatch_Extension">
+                                    <group key="rootItem" width="1" height="44" alignment="left" layout="vertical" id="4gP-jG-SuU">
+                                        <items>
+                                            <label width="1" alignment="left" text="Category" id="7cT-Bg-dcS"/>
+                                            <label width="1" alignment="left" text="Money" id="6V5-CU-QG3">
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="categoryLabel" destination="7cT-Bg-dcS" id="3z3-6O-4Sf"/>
+                                        <outlet property="moneyLabel" destination="6V5-CU-QG3" id="iao-HY-uI3"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="budgetTable" destination="xwn-b7-LXB" id="25K-OO-PAk"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1090" y="349"/>
         </scene>
         <!--confirmationController-->
         <scene sceneID="Cru-fR-uVx">
             <objects>
                 <controller identifier="confirmationController" id="ebg-RW-d3a" customClass="ConfirmationController" customModule="LedgerWatch_Extension">
                     <items>
-                        <label width="136" height="153" alignment="left" text="Result pending" textAlignment="center" id="GcZ-FW-4U4"/>
+                        <group width="1" height="1" alignment="left" layout="overlap" id="Y91-ot-5R4">
+                            <items>
+                                <label width="136" height="20" alignment="left" text="Result pending" textAlignment="center" id="GcZ-FW-4U4"/>
+                                <imageView width="1" height="1" alignment="left" image="Progress" contentMode="center" id="PB6-fH-4ks"/>
+                            </items>
+                            <gestureRecognizers>
+                                <tapGestureRecognizer enabled="NO" id="mYU-Nq-Tf3">
+                                    <connections>
+                                        <action selector="recognizedTap:" destination="ebg-RW-d3a" id="S0c-LD-cTt"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                            </gestureRecognizers>
+                        </group>
                     </items>
                     <connections>
+                        <outlet property="confirmationImage" destination="PB6-fH-4ks" id="kuz-MU-f7T"/>
                         <outlet property="confirmationLabel" destination="GcZ-FW-4U4" id="674-GU-KiY"/>
+                        <outlet property="tapRecognizer" destination="mYU-Nq-Tf3" id="YU2-cP-V1V"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="1016" y="358"/>
+            <point key="canvasLocation" x="1459" y="351"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

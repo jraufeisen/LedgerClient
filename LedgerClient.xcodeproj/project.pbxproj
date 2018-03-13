@@ -41,6 +41,8 @@
 		EBDD1E891FEFD50800858F51 /* LedgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD1E881FEFD50800858F51 /* LedgerModel.swift */; };
 		EBDD1E8A1FEFD50B00858F51 /* LedgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD1E881FEFD50800858F51 /* LedgerModel.swift */; };
 		EBE792F01F86CBE70047C7ED /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */; };
+		EBEC9E322057D7AC00155B8D /* BudgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC9E312057D7AC00155B8D /* BudgetController.swift */; };
+		EBEC9E342057D7BD00155B8D /* BudgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC9E332057D7BD00155B8D /* BudgetRow.swift */; };
 		EBF8D0711FEE8DF600CBF280 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0701FEE8DF600CBF280 /* Parser.swift */; };
 		EBF8D0731FEE8E0600CBF280 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0721FEE8E0600CBF280 /* Account.swift */; };
 		EBF8D0751FEE8E1400CBF280 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8D0741FEE8E1400CBF280 /* Transaction.swift */; };
@@ -137,6 +139,8 @@
 		EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EBDD1E881FEFD50800858F51 /* LedgerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerModel.swift; sourceTree = "<group>"; };
 		EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		EBEC9E312057D7AC00155B8D /* BudgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetController.swift; sourceTree = "<group>"; };
+		EBEC9E332057D7BD00155B8D /* BudgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRow.swift; sourceTree = "<group>"; };
 		EBF8D0701FEE8DF600CBF280 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		EBF8D0721FEE8E0600CBF280 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		EBF8D0741FEE8E1400CBF280 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -259,11 +263,8 @@
 		EBCC6BDC20558640005120B2 /* LedgerWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				EB0A8B922056CAE400B0E138 /* AccountRow.swift */,
-				EBCC6BDD20558640005120B2 /* InterfaceController.swift */,
-				EB0A8B8D2056BA9D00B0E138 /* EnterNumberInterfaceController.swift */,
-				EB0A8B902056C7AB00B0E138 /* AccountSelectionController.swift */,
-				EB0A8BA72056F4B900B0E138 /* ConfirmationController.swift */,
+				EBEC9E382057E1D700155B8D /* Controller */,
+				EBEC9E372057E1C800155B8D /* Table Rows */,
 				EBCC6BDF20558640005120B2 /* ExtensionDelegate.swift */,
 				EBCC6BE120558640005120B2 /* NotificationController.swift */,
 				EBCC6BE320558640005120B2 /* ComplicationController.swift */,
@@ -272,6 +273,27 @@
 				EBCC6BE820558640005120B2 /* PushNotificationPayload.apns */,
 			);
 			path = "LedgerWatch Extension";
+			sourceTree = "<group>";
+		};
+		EBEC9E372057E1C800155B8D /* Table Rows */ = {
+			isa = PBXGroup;
+			children = (
+				EBEC9E332057D7BD00155B8D /* BudgetRow.swift */,
+				EB0A8B922056CAE400B0E138 /* AccountRow.swift */,
+			);
+			path = "Table Rows";
+			sourceTree = "<group>";
+		};
+		EBEC9E382057E1D700155B8D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EBCC6BDD20558640005120B2 /* InterfaceController.swift */,
+				EB0A8B8D2056BA9D00B0E138 /* EnterNumberInterfaceController.swift */,
+				EB0A8B902056C7AB00B0E138 /* AccountSelectionController.swift */,
+				EBEC9E312057D7AC00155B8D /* BudgetController.swift */,
+				EB0A8BA72056F4B900B0E138 /* ConfirmationController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		EBF8D06D1FEE8DD600CBF280 /* Model */ = {
@@ -513,11 +535,13 @@
 				EB0A8BA92056F4BF00B0E138 /* ConfirmationController.swift in Sources */,
 				EB0A8B972056CD7300B0E138 /* Parser.swift in Sources */,
 				EBCC6BE220558640005120B2 /* NotificationController.swift in Sources */,
+				EBEC9E322057D7AC00155B8D /* BudgetController.swift in Sources */,
 				EB0A8B8F2056BAB700B0E138 /* EnterNumberInterfaceController.swift in Sources */,
 				EBCC6BE420558640005120B2 /* ComplicationController.swift in Sources */,
 				EBCC6BE020558640005120B2 /* ExtensionDelegate.swift in Sources */,
 				EB0A8BA62056E8B800B0E138 /* WatchSessionManager.swift in Sources */,
 				EB0A8B962056CD5200B0E138 /* Account.swift in Sources */,
+				EBEC9E342057D7BD00155B8D /* BudgetRow.swift in Sources */,
 				EB0A8B912056C7AB00B0E138 /* AccountSelectionController.swift in Sources */,
 				EBCC6BDE20558640005120B2 /* InterfaceController.swift in Sources */,
 				EB0A8B932056CAE400B0E138 /* AccountRow.swift in Sources */,
