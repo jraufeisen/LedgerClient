@@ -94,7 +94,6 @@ extension WatchSessionManager {
         session?.sendMessage(message, replyHandler: { (response: [String: Any]) in
             //The respone block is called asynchronously
             //Expected to contain key-value pair "Success":Bool
-            print("Yes, I got a reply \(response)")
             guard let success = response["Success"] else {
                 //Result unclear
                 NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: nil)
@@ -163,13 +162,13 @@ extension WatchSessionManager {
             let categories = LedgerModel.defaultModel().categories()
             let budgetValues = categories.map{ LedgerModel.defaultModel().budgetInCategory(category: $0).description}
             
-           let budget = Dictionary(uniqueKeysWithValues: zip(categories, budgetValues))
+            let budget = Dictionary(uniqueKeysWithValues: zip(categories, budgetValues))
             replyHandler(["Budget":budget])
         }
 
         //New expense statement
-        if let incomeArray = message["Expense"] as? [String] {
-            let success = LedgerModel.defaultModel().postExpense(acc: incomeArray[0], value: incomeArray[1], category: incomeArray[2])
+        if let expenseArray = message["Expense"] as? [String] {
+            let success = LedgerModel.defaultModel().postExpense(acc: expenseArray[0], value: expenseArray[1], category: expenseArray[2])
             //Call the reply handler
             replyHandler(["Success":success])
         }

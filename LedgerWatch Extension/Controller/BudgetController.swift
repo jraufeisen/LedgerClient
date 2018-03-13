@@ -16,8 +16,10 @@ class BudgetController: WKInterfaceController {
 
     var context: EntryContext?
     var categories: [String]?
+    var budget: [String:String]?
     
     override func awake(withContext context: Any?) {
+        WatchSessionManager.sharedManager.askForBudget()
         WatchSessionManager.sharedManager.dataDelegate = self
         guard let summary = context as? EntryContext else {return}
         self.context = summary
@@ -25,13 +27,21 @@ class BudgetController: WKInterfaceController {
         updateTable()
     }
  
+   
     
     ///Loads all necessary data in the tableview
     @objc private func updateTable() {
         
         guard let budget = WatchSessionManager.sharedManager.budget else {print("No budget loaded at this time");return}
+        //Only update, when there are changes
+        if let oldBudget = self.budget {
+            guard budget != oldBudget else {print("I just received the same budget again");return}
+        }
         
-        categories = budget.keys.sorted()
+        //Update to new values
+        self.categories = budget.keys.sorted()
+        self.budget = budget
+
         
         budgetTable.setNumberOfRows(budget.count, withRowType: "budgetRow")
         for i in 0..<categories!.count {
@@ -42,6 +52,8 @@ class BudgetController: WKInterfaceController {
                 
             }
         }
+        
+
         
     }
 
@@ -67,8 +79,10 @@ class BudgetController: WKInterfaceController {
 //MARK: Ledger data delegate
 extension BudgetController: LedgerDataDelegate {
     func newBudgetDataAvailable(newBudget: [String : String]?) {
-        animate(withDuration: 0.35)  {
-            self.updateTable()
+        DispatchQueue.main.async {
+            self.animate(withDuration: 0.35)  {
+                self.updateTable()
+            }
         }
         
     }

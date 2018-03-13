@@ -64,3 +64,4 @@ class InterfaceController: WKInterfaceController {
         pushController(withName: "enterNumber", context: EntryContext.init(type: .Expense, money: nil, account: nil, budgetCategory: nil))
     }
 }
+

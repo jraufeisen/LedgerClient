@@ -29,7 +29,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(.showOnLockScreen)
     }
     
-    // MARK: - Timeline Population
+    // MARK: - Ti meline Population
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
@@ -50,7 +50,51 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+        let textProvider = CLKTextProvider.localizableTextProvider(withStringsFileTextKey: "€")
+        let emptyTextProvider = CLKTextProvider.localizableTextProvider(withStringsFileTextKey: "")
+
+        if complication.family == .utilitarianSmallFlat {
+            let template = CLKComplicationTemplateUtilitarianSmallFlat()
+            template.textProvider = textProvider
+            handler(template)
+        } else if complication.family == .utilitarianSmall {
+            let template = CLKComplicationTemplateUtilitarianSmallRingText()
+            template.textProvider = textProvider
+            handler(template)
+        } else if complication.family == .utilitarianLarge {
+            let template = CLKComplicationTemplateUtilitarianLargeFlat()
+            template.textProvider = textProvider
+            handler(template)
+        } else if complication.family == .circularSmall {
+            let template = CLKComplicationTemplateCircularSmallRingText()
+            template.textProvider = textProvider
+            template.fillFraction = 1.0
+            template.ringStyle = .open
+            handler(template)
+        
+            handler(nil)
+        } else if complication.family == .modularSmall {
+            let template = CLKComplicationTemplateModularSmallStackText()
+            template.line1TextProvider = textProvider
+            template.line2TextProvider = emptyTextProvider
+            handler(template)
+        } else if complication.family == .modularLarge {
+            let template = CLKComplicationTemplateModularLargeStandardBody()
+            template.headerTextProvider = emptyTextProvider
+            template.body1TextProvider = emptyTextProvider
+            template.body2TextProvider = emptyTextProvider
+
+            handler(template)
+        } else if complication.family == .extraLarge {
+            let template = CLKComplicationTemplateExtraLargeStackText()
+            template.line1TextProvider = textProvider
+            template.line2TextProvider = emptyTextProvider
+
+            handler(template)
+
+        }
+        
+        
     }
     
 }
