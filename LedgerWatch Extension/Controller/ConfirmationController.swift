@@ -30,6 +30,7 @@ class ConfirmationController: WKInterfaceController {
     
     @objc private func receivedResult(notification: Notification) {
         tapRecognizer.isEnabled = true
+        confirmationImage.stopAnimating()
         guard let success = notification.object as? Bool else {
             confirmationLabel.setText("Result unclear...")
             confirmationImage.setImageNamed("Failure")
@@ -37,7 +38,7 @@ class ConfirmationController: WKInterfaceController {
         }
         
         if success {
-            confirmationLabel.setText("Done :)")
+            confirmationLabel.setText("")
             confirmationImage.setImageNamed("Success")
             
         } else {

@@ -89,12 +89,17 @@ extension WatchSessionManager {
     
     ///Use this method on the Apple Wach to send a message to the phone. This message tells the iPhone to add an income statement to the ledger file.
     func sendIncomeMessage(acc: String, value: String) {
-        let message = ["income": [acc, value]]
+        let message = ["Income": [acc, value]]
         
-        session?.sendMessage(message, replyHandler: { (respone: [String: Any]) in
+        session?.sendMessage(message, replyHandler: { (response: [String: Any]) in
             //The respone block is called asynchronously
             //Expected to contain key-value pair "Success":Bool
-            guard let success = respone["Success"] else {return}
+            print("Yes, I got a reply \(response)")
+            guard let success = response["Success"] else {
+                //Result unclear
+                NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: nil)
+                return
+            }
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: success)
         }, errorHandler: { (err: Error) in
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: false)
@@ -108,7 +113,7 @@ extension WatchSessionManager {
      This message tells the iPhone to add an income statement to the ledger file.
      */
     func sendExpenseMessage(acc: String, value: String, category: String) {
-        let message = ["expense": [acc, value, category]]
+        let message = ["Expense": [acc, value, category]]
         
         session?.sendMessage(message, replyHandler: { (respone: [String: Any]) in
             guard let success = respone["Success"] else {return}
@@ -146,7 +151,7 @@ extension WatchSessionManager {
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         //new income statement
-        if let incomeArray = message["income"] as? [String] {
+        if let incomeArray = message["Income"] as? [String] {
             let bankingAccount = Account.init(name: "Assets:Banking:\(incomeArray[0])")
             let success = LedgerModel.defaultModel().postIncome(acc: bankingAccount,  value: incomeArray[1])
             //Call the reply handler
@@ -163,7 +168,7 @@ extension WatchSessionManager {
         }
 
         //New expense statement
-        if let incomeArray = message["income"] as? [String] {
+        if let incomeArray = message["Expense"] as? [String] {
             let success = LedgerModel.defaultModel().postExpense(acc: incomeArray[0], value: incomeArray[1], category: incomeArray[2])
             //Call the reply handler
             replyHandler(["Success":success])

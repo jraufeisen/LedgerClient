@@ -80,7 +80,8 @@ class LedgerModel: NSObject {
     
     ///Appends income to the current ledger file. Returns YES on success
     func postIncome(acc: Account, value: String) -> Bool {
-        guard let income = Float(value.replacingOccurrences(of: ",", with: ".")) else {print("Not a valid number");return false}
+        let value = value.replacingOccurrences(of: ",", with: ".")
+        guard let income = Float(value) else {print("Not a valid number");return false}
         guard income > 0 else {print("Not a positive income!");return false}
         
         let date = LedgerModel.dateString(date: Date())
@@ -99,7 +100,8 @@ class LedgerModel: NSObject {
     
     ///Appends expense to the current ledger file. Returns YES on success
     func postExpense(acc: String, value: String, category: String) -> Bool {
-        guard let income = Float(value.replacingOccurrences(of: ",", with: ".")) else {print("Not a valid number");return false}
+        let value = value.replacingOccurrences(of: ",", with: ".")
+        guard let income = Float(value) else {print("Not a valid number");return false}
         guard income > 0 else {print("Not a positive expense!");return false}
 
         
