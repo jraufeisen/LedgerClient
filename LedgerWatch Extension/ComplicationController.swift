@@ -72,7 +72,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.ringStyle = .open
             handler(template)
         
-            handler(nil)
+            handler(template)
         } else if complication.family == .modularSmall {
             let template = CLKComplicationTemplateModularSmallStackText()
             template.line1TextProvider = textProvider
