@@ -216,13 +216,13 @@ class LedgerModel: NSObject {
         
         //Add options
         beancount += "\noption \"title\" \"Auto converted ledger->beancount file\"\n"
-        beancount += "option \"operating_currency\" \"EUR file\"\n"
+        beancount += "option \"operating_currency\" \"EUR\"\n"
 
         //Add transactions
         for tx in transactions {
             
             //First line contains date and title
-            beancount += "\n\n\(LedgerModel.beancountDateString(date: tx.date)) * \"Here goes your tx title\""
+            beancount += "\n\n\(LedgerModel.beancountDateString(date: tx.date)) * \"\(tx.name)\""
             
             //Following lines include inteded postings
             for (acc, value) in tx.postings {
