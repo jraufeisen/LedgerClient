@@ -12,7 +12,7 @@ import WatchConnectivity
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-
+    
     var window: UIWindow?
 
     var wcSession: WCSession?
@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Communication with watch app
         WatchSessionManager.sharedManager.startSession()
+        
+        print(LedgerModel.defaultModel().convertToBeancount())
         
         return true
     }

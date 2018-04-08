@@ -35,7 +35,7 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         \(date) Transaktion
         \tAssets:Banking:\(account) \t \(value) EUR
         \t[Assets:Budget:\(category)]\t \(value) EUR
-        \tAusgaben:\(category)\t \(reverse_value) EUR
+        \tExpenses:\(category)\t \(reverse_value) EUR
         \tEquity:AntiBudget:\(category)
         
         """

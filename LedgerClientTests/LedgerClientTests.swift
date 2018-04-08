@@ -27,7 +27,7 @@ class LedgerClientTests: XCTestCase {
                 2017/10/08 Tanken
                     Assets:Banking:Kreditkarte      -48.27 EUR
                     [Assets:Budget:Sprit]     -48.27 EUR
-                    Ausgaben:Sprit     48.27 EUR
+                    Expenses:Sprit     48.27 EUR
                     Equity:AntiBudget:Sprit
         """
 
@@ -35,7 +35,7 @@ class LedgerClientTests: XCTestCase {
         
         XCTAssert(parser.accounts.contains(Account.init(name: "Assets:Banking:Kreditkarte")))
         XCTAssert(parser.accounts.contains(Account.init(name: "Assets:Budget:Sprit")))
-        XCTAssert(parser.accounts.contains(Account.init(name: "Ausgaben:Sprit")))
+        XCTAssert(parser.accounts.contains(Account.init(name: "Expenses:Sprit")))
         XCTAssert(parser.accounts.contains(Account.init(name: "Equity:AntiBudget:Sprit")))
         XCTAssert(parser.accounts.count == 4)
         
@@ -75,7 +75,7 @@ class LedgerClientTests: XCTestCase {
                 2017/10/08 Tanken
                     Assets:Banking:Kreditkarte      -48.27 EUR
                     [Assets:Budget:Sprit]     -48.27 EUR
-                    Ausgaben:Sprit     48.27 EUR
+                    Expenses:Sprit     48.27 EUR
                     Equity:AntiBudget:Sprit
         """
 
@@ -100,14 +100,14 @@ class LedgerClientTests: XCTestCase {
             2017/10/12 Pizza Hut
                 Assets:Banking:Bargeld      -8 EUR
                 [Assets:Budget:Lebensmittel]     -8 EUR
-                Ausgaben:Lebensmittel     8 EUR
+                Expenses:Lebensmittel     8 EUR
                 Equity:AntiBudget:Lebensmittel
 
 
             2017/10/13 Internet
                 Assets:Banking:Girokonto     -30 EUR
                 [Assets:Budget:Internet]         -30 EUR
-                Ausgaben:Internet        30 EUR
+                Expenses:Internet        30 EUR
                 Equity:AntiBudget:Internet
         """
         let parser = Parser.init(ledgerString: input)

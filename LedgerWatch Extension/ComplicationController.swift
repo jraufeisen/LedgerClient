@@ -53,6 +53,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         let textProvider = CLKTextProvider.localizableTextProvider(withStringsFileTextKey: "€")
         let emptyTextProvider = CLKTextProvider.localizableTextProvider(withStringsFileTextKey: "")
 
+      //  var template: CLKComplicationTemplate?
+        
         if complication.family == .utilitarianSmallFlat {
             let template = CLKComplicationTemplateUtilitarianSmallFlat()
             template.textProvider = textProvider
@@ -72,7 +74,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.ringStyle = .open
             handler(template)
         
-            handler(template)
         } else if complication.family == .modularSmall {
             let template = CLKComplicationTemplateModularSmallStackText()
             template.line1TextProvider = textProvider
@@ -80,7 +81,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             handler(template)
         } else if complication.family == .modularLarge {
             let template = CLKComplicationTemplateModularLargeStandardBody()
-            template.headerTextProvider = emptyTextProvider
+            template.headerTextProvider = textProvider
             template.body1TextProvider = emptyTextProvider
             template.body2TextProvider = emptyTextProvider
 

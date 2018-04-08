@@ -61,7 +61,7 @@ class CategoryTableViewController: UITableViewController {
         
         //Set fill
         let budgetAccount = Account.init(name: "Assets:Budget:\(categories[indexPath.row])")
-        let spentAccount = Account.init(name: "Ausgaben:\(categories[indexPath.row])")
+        let spentAccount = Account.init(name: "Expenses:\(categories[indexPath.row])")
         let currentBalance = ledger.balanceForAccount(acc: budgetAccount)
         let spentThisMonth = ledger.balanceSinceDate(acc: spentAccount, date: Date().firstDayOfCurrentMonth())
         let proportion: Decimal = currentBalance/(currentBalance+spentThisMonth)

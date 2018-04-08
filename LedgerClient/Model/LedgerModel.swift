@@ -113,7 +113,7 @@ class LedgerModel: NSObject {
         \(date) Transaktion
         \tAssets:Banking:\(acc) \t \(value) EUR
         \t[Assets:Budget:\(category)]\t \(value) EUR
-        \tAusgaben:\(category)\t \(reverse_value) EUR
+        \tExpenses:\(category)\t \(reverse_value) EUR
         \tEquity:AntiBudget:\(category)
 
         """
@@ -190,6 +190,48 @@ class LedgerModel: NSObject {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         return dateFormatter.string(from: date)
+    }
+    
+    class func beancountDateString(date: Date) -> String {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    
+    //MARK: Conversion to Beancount
+    
+    /**
+     This function creates a string in the valid beancount formula containing all the transactions and accounts from the original ledger model.
+    */
+    func convertToBeancount() -> String {
+        
+        var beancount = ""
+        
+        //Open all the accounts at the beginning
+        for acc in accounts {
+            beancount += "1970-01-01 open \(acc.name)\n"
+        }
+        
+        
+        //Add options
+        beancount += "\noption \"title\" \"Auto converted ledger->beancount file\"\n"
+        beancount += "option \"operating_currency\" \"EUR file\"\n"
+
+        //Add transactions
+        for tx in transactions {
+            
+            //First line contains date and title
+            beancount += "\n\n\(LedgerModel.beancountDateString(date: tx.date)) * \"Here goes your tx title\""
+            
+            //Following lines include inteded postings
+            for (acc, value) in tx.postings {
+                beancount += "\n\t\(acc.name) \(value) EUR"
+            }
+            
+        }
+        
+        return beancount
     }
     
     
