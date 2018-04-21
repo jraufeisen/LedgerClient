@@ -13,6 +13,7 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var valueField: UITextField!
     @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var accountField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     
     @objc func addTransaction() {
         
@@ -23,16 +24,19 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         guard !(value.isEmpty) else {return}
         guard !(category.isEmpty) else {return}
         
+        // Name of the transaction
+        var txName = "Transaction"
+        if let name = nameTextField.text {
+            if name != "" { txName = name }
+        }
+        
         
         let reverse_value = value.range(of: "-") == nil ? "-" + value : value.replacingOccurrences(of: "-", with: "")
-        
         let string_contents = LedgerModel.defaultJournal
-    
         let date = LedgerModel.dateString(date: Date())
-        
         let append = """
         
-        \(date) Transaktion
+        \(date) \(txName)
         \tAssets:Banking:\(account) \t \(value) EUR
         \t[Assets:Budget:\(category)]\t \(value) EUR
         \tExpenses:\(category)\t \(reverse_value) EUR
@@ -46,15 +50,11 @@ class AddTxTableViewController: UITableViewController, UITextFieldDelegate {
         } catch {
             print("Could not write")
         }
-        
-        
-        
-        
-        
     }
 
+    
     func clearInputs() {
-        for field in [valueField, categoryField, accountField] {
+        for field in [valueField, categoryField, accountField, nameTextField] {
             field?.text = ""
             field?.resignFirstResponder()
         }
