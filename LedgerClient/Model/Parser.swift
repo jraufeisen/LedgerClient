@@ -26,6 +26,9 @@ class Parser: NSObject {
 
         for i in 0..<lines.count {
             let line = String(lines[i]).trimmingCharacters(in: .whitespaces)
+            guard !line.isEmpty else {continue}; //Add this line to make sure, that a first character exists. Problems can occur after custom file editing, when a line contains only whitespaces
+            
+            
             let firstCharacter = line[...line.index(line.startIndex, offsetBy: 0)]
             
             if Int(firstCharacter) == nil {
@@ -51,7 +54,8 @@ class Parser: NSObject {
         var txBlockStart: Int? = nil
         for i in 0..<lines.count {
             let line = String(lines[i]).trimmingCharacters(in: .whitespaces)
-            
+            guard !line.isEmpty else {continue}; //Add this line to make sure, that a first character exists. Problems can occur after custom file editing, when a line contains only whitespaces
+
             let firstCharacter = line[...line.index(line.startIndex, offsetBy: 0)]
             if Int(firstCharacter) != nil {
                 //This line contains a digit in the beginning and thus marks the start of a new transaction
