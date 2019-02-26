@@ -27,8 +27,6 @@ class AccountTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Use account delegate to let other VC know which account has been selected
         accountDelegate?.didSelectAccount(account: accounts[indexPath.row])
-        navigationController?.popViewController(animated: true)
-        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,7 +40,7 @@ class AccountTableViewController: UITableViewController {
         
         
         cell.textLabel?.text = accounts[indexPath.row]
-        cell.detailTextLabel?.text = String(format: "%.2f", (model.balanceForAccount(acc: account) as NSDecimalNumber))
+        cell.detailTextLabel?.text = String(format: "%.2f", (model.balanceForAccount(acc: account) as NSDecimalNumber).floatValue)
         
         return cell
     }

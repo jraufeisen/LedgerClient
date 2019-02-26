@@ -14,11 +14,13 @@ class CategoryTableViewController: UITableViewController {
     let ledger = LedgerModel.defaultModel
     let categories = LedgerModel.defaultModel.categories()
     var budget = [String:Decimal]()
-    
+   
+    var categoryDelegate: CategoryTableViewDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Categegories"
+        self.title = "Categories"
         
         //Init values
         for cat in categories {
@@ -30,7 +32,6 @@ class CategoryTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -76,21 +77,12 @@ class CategoryTableViewController: UITableViewController {
 
     //On selection: Go back to main transaction view with the selected category
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let controller = navigationController?.viewControllers.first as? AddTxTableViewController {
-            controller.configureCategory(category: categories[indexPath.row])
-        }
-        
-        navigationController?.popViewController(animated: true)
+        categoryDelegate?.didSelectCategory(category: categories[indexPath.row])
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+protocol CategoryTableViewDelegate {
+    func didSelectCategory(category: String)
+}
+

@@ -14,6 +14,7 @@ import Foundation
 public enum NumberContext {
     case Expense
     case Income
+    case Transfer
 }
 
 
@@ -23,14 +24,17 @@ public struct EntryContext {
     var money: String?
     var account: String?
     var budgetCategory: String?
+    var description: String?
     
-    init(type: NumberContext? = nil, money: String? = nil, account: String? = nil, budgetCategory: String? = nil) {
+    init(type: NumberContext? = nil, money: String? = nil, account: String? = nil, budgetCategory: String? = nil, description: String? = nil) {
         self.type = type
         self.money = money
         self.account = account
         self.budgetCategory = budgetCategory
+        self.description = description
     }
 }
+
 
 
 class InterfaceController: WKInterfaceController {

@@ -78,8 +78,44 @@ class LedgerModel: NSObject {
     
     //MARK: Enter new data
     
+    ///Appends a new transaction to the current ledger file. Returns YES on success
+    func postTransaction(context: EntryContext) -> Bool {
+        
+        if (context.type == .Expense) {
+            guard let acc = context.account else {return false}
+            guard let value = context.money else {return false}
+            guard let category = context.budgetCategory else {return false}
+            var description = "Transaktion"
+            if let desc = context.description {
+                if !desc.isEmpty {  description = desc }
+            }
+            
+            return postExpense(acc: acc, value: value, category: category, description: description)
+        } else if (context.type == .Income) {
+            guard let acc = context.account else {return false}
+            guard let value = context.money else {return false}
+            var description = "Transaktion"
+            if let desc = context.description {
+                if !desc.isEmpty {  description = desc }
+            }
+            
+            return postIncome(acc: acc, value: value, description: description)
+            
+        } else if (context.type == NumberContext.Transfer) {
+            //TODO: Implement transfer
+        }
+        
+        return false
+    }
+    
+    
     ///Appends income to the current ledger file. Returns YES on success
-    func postIncome(acc: Account, value: String) -> Bool {
+    func postIncome(acc: String, value: String, description: String = "Transaktion") -> Bool {
+        return postIncome(acc: Account.init(name: "Assets:Banking:\(acc)"), value: value, description: description)
+    }
+    
+    ///Appends income to the current ledger file. Returns YES on success
+    func postIncome(acc: Account, value: String, description: String = "Transaktion") -> Bool {
         let value = value.replacingOccurrences(of: ",", with: ".")
         guard let income = Float(value) else {print("Not a valid number");return false}
         guard income > 0 else {print("Not a positive income!");return false}
@@ -87,7 +123,7 @@ class LedgerModel: NSObject {
         let date = LedgerModel.dateString(date: Date())
         let incomeStatement = """
         
-        \(date) Transaktion
+        \(date) \(description)
         \t\(acc.name) \t \(value) EUR
         \tEquity:Income
         
@@ -99,7 +135,7 @@ class LedgerModel: NSObject {
     
     
     ///Appends expense to the current ledger file. Returns YES on success
-    func postExpense(acc: String, value: String, category: String) -> Bool {
+    func postExpense(acc: String, value: String, category: String, description: String = "Transaktion") -> Bool {
         let value = value.replacingOccurrences(of: ",", with: ".")
         guard let income = Float(value) else {print("Not a valid number");return false}
         guard income > 0 else {print("Not a positive expense!");return false}
@@ -110,7 +146,7 @@ class LedgerModel: NSObject {
 
         let incomeStatement = """
         
-        \(date) Transaktion
+        \(date) \(description)
         \tAssets:Banking:\(acc) \t \(value) EUR
         \t[Assets:Budget:\(category)]\t \(value) EUR
         \tExpenses:\(category)\t \(reverse_value) EUR
