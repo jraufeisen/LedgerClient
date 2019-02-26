@@ -10,7 +10,7 @@ import UIKit
 
 class AccountTableViewController: UITableViewController {
 
-    let model = LedgerModel.defaultModel()
+    let model = LedgerModel.defaultModel
     let accounts = ["Bargeld","Girokonto","Kreditkarte", "Tagesgeld"]
     var accountDelegate: AccountTableViewDelegate?
     
@@ -42,7 +42,7 @@ class AccountTableViewController: UITableViewController {
         
         
         cell.textLabel?.text = accounts[indexPath.row]
-        cell.detailTextLabel?.text = "\(model.balanceForAccount(acc: account))"
+        cell.detailTextLabel?.text = String(format: "%.2f", (model.balanceForAccount(acc: account) as NSDecimalNumber))
         
         return cell
     }

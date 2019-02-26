@@ -94,13 +94,37 @@ class Transaction: NSObject {
         var sum: Decimal = 0
         for (key, val) in postings {
             //Important: Use .contains here, cause asking for "Assets:Budget" should also consider "Assets:Budget:Clothes"
-            if key.name.contains(acc.name) { sum += val }
+            if key.name.contains(acc.name) { sum += val}
         }
         return sum
     }
     
     
+    func isIncome() -> Bool {
+        return !isExpense()
+    }
     
+    func isExpense() -> Bool {
+        for (account, _) in postings {
+            if account.name.contains("Expense") {return true}
+        }
+        
+        return false
+    }
     
+    /**
+     Most transactions contain more than one posting due to virtual postings for example.
+     The end-user is only interested in the "real" (i.e. non virtual transaction that occurred)
+     */
+    func effectiveValue() -> Decimal {
+        var value: Decimal = 0
+        for (account, _) in postings {
+            if account.name.contains("Banking") {
+                value += valueForAccount(acc: account)
+            }
+        }
+        
+        return value
+    }
     
 }

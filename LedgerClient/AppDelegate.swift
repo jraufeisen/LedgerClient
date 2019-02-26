@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Communication with watch app
         WatchSessionManager.sharedManager.startSession()
         
-        print(LedgerModel.defaultModel().convertToBeancount())
+        print(LedgerModel.defaultModel.convertToBeancount())
         
         return true
     }

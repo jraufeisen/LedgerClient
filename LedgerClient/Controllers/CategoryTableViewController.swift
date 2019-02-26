@@ -11,8 +11,8 @@ import UIKit
 class CategoryTableViewController: UITableViewController {
 
     //Instance variables
-    let ledger = LedgerModel.defaultModel()
-    let categories = LedgerModel.defaultModel().categories()
+    let ledger = LedgerModel.defaultModel
+    let categories = LedgerModel.defaultModel.categories()
     var budget = [String:Decimal]()
     
     override func viewDidLoad() {

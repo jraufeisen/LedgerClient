@@ -26,6 +26,7 @@
 		EB3527A91FEDAA1300DB0B70 /* TransferTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3527A81FEDAA1300DB0B70 /* TransferTableViewController.swift */; };
 		EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */; };
 		EB610E0120529FCA00A0ED37 /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB610E0020529FCA00A0ED37 /* BudgetTableViewController.swift */; };
+		EB86A4B12225610600B3410F /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB86A4B02225610600B3410F /* TransactionTableViewController.swift */; };
 		EB8A7DC11FEFF112003D0864 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A7DC01FEFF112003D0864 /* BudgetTableViewCell.swift */; };
 		EB8A7DC41FEFF44A003D0864 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A7DC31FEFF44A003D0864 /* Date+Utilities.swift */; };
 		EBCC6BD020558640005120B2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBCC6BCE20558640005120B2 /* Interface.storyboard */; };
@@ -121,6 +122,7 @@
 		EB3527A81FEDAA1300DB0B70 /* TransferTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTableViewController.swift; sourceTree = "<group>"; };
 		EB4D95E01F838F5A00FAD0CE /* AddTxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTxTableViewController.swift; sourceTree = "<group>"; };
 		EB610E0020529FCA00A0ED37 /* BudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
+		EB86A4B02225610600B3410F /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
 		EB8A7DC01FEFF112003D0864 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		EB8A7DC31FEFF44A003D0864 /* Date+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
 		EB8F83B920558D1D002AFDE4 /* LedgerWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LedgerWatch.entitlements; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				EBD8E2F71F83B4D40041D1AF /* CategoryTableViewController.swift */,
 				EBE792EF1F86CBE70047C7ED /* AccountTableViewController.swift */,
 				EB610E0020529FCA00A0ED37 /* BudgetTableViewController.swift */,
+				EB86A4B02225610600B3410F /* TransactionTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 			files = (
 				EBE792F01F86CBE70047C7ED /* AccountTableViewController.swift in Sources */,
 				EB3527A91FEDAA1300DB0B70 /* TransferTableViewController.swift in Sources */,
+				EB86A4B12225610600B3410F /* TransactionTableViewController.swift in Sources */,
 				EB1CC78B1F8377E400F2DDF8 /* AppDelegate.swift in Sources */,
 				EB4D95E11F838F5A00FAD0CE /* AddTxTableViewController.swift in Sources */,
 				EBF8D0731FEE8E0600CBF280 /* Account.swift in Sources */,

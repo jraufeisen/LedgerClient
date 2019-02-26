@@ -17,6 +17,9 @@ class LedgerModel: NSObject {
     ///All transactions that occurred
     let transactions: [Transaction]
 
+    static let defaultModel: LedgerModel = LedgerModel.init(ledgerString: defaultJournal)
+    
+    
     
     //MARK: Initializers
     class var defaultURL: URL {
@@ -31,9 +34,6 @@ class LedgerModel: NSObject {
         return string_contents
     }
     
-    class func defaultModel() -> LedgerModel {
-        return LedgerModel.init(ledgerString: defaultJournal)
-    }
     
     init(ledgerString: String) {
         self.accounts = Parser.parseAccounts(ledgerString: ledgerString)

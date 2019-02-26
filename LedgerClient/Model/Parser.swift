@@ -79,7 +79,8 @@ class Parser: NSObject {
             tx.append(single_tx)
         }
 
-        return tx
+        //Reverse order, so that the most recent transactions are the first elements
+        return tx.reversed()
     }
     
     
