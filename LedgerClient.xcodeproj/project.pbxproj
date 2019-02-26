@@ -33,6 +33,7 @@
 		EB86A4BC222582B600B3410F /* EnterDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB86A4BB222582B600B3410F /* EnterDescriptionViewController.swift */; };
 		EB8A7DC11FEFF112003D0864 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A7DC01FEFF112003D0864 /* BudgetTableViewCell.swift */; };
 		EB8A7DC41FEFF44A003D0864 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A7DC31FEFF44A003D0864 /* Date+Utilities.swift */; };
+		EBAFF78422259E9800BE7F4C /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFF78322259E9800BE7F4C /* UIColor+Macro.swift */; };
 		EBCC6BD020558640005120B2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBCC6BCE20558640005120B2 /* Interface.storyboard */; };
 		EBCC6BD220558640005120B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBCC6BD120558640005120B2 /* Assets.xcassets */; };
 		EBCC6BD920558640005120B2 /* LedgerWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EBCC6BD820558640005120B2 /* LedgerWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -134,6 +135,7 @@
 		EB8A7DC01FEFF112003D0864 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		EB8A7DC31FEFF44A003D0864 /* Date+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
 		EB8F83B920558D1D002AFDE4 /* LedgerWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LedgerWatch.entitlements; sourceTree = "<group>"; };
+		EBAFF78322259E9800BE7F4C /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
 		EBCC6BCC20558640005120B2 /* LedgerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LedgerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCC6BCF20558640005120B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		EBCC6BD120558640005120B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				EB8A7DC21FEFF117003D0864 /* Views */,
 				EBF8D06D1FEE8DD600CBF280 /* Model */,
 				EB1CC78E1F8377E400F2DDF8 /* Main.storyboard */,
+				EBAFF78322259E9800BE7F4C /* UIColor+Macro.swift */,
 				EB8A7DC61FEFF462003D0864 /* Controllers */,
 				EB8A7DC51FEFF458003D0864 /* Extensions */,
 				EB1CC7911F8377E400F2DDF8 /* Assets.xcassets */,
@@ -568,6 +571,7 @@
 				EB8A7DC41FEFF44A003D0864 /* Date+Utilities.swift in Sources */,
 				EBDD1E891FEFD50800858F51 /* LedgerModel.swift in Sources */,
 				EB8A7DC11FEFF112003D0864 /* BudgetTableViewCell.swift in Sources */,
+				EBAFF78422259E9800BE7F4C /* UIColor+Macro.swift in Sources */,
 				EBF8D0751FEE8E1400CBF280 /* Transaction.swift in Sources */,
 				EB86A4BA22257D1000B3410F /* EnterCategoryViewController.swift in Sources */,
 			);

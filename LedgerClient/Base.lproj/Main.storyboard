@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34r-Qh-AtB">
-                                <rect key="frame" x="16" y="28" width="343" height="257"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.68713296980000005" blue="0.26746015099999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
@@ -79,21 +79,8 @@
                                     <action selector="addIncome:" destination="rfT-9m-RPN" eventType="touchUpInside" id="eaR-YL-uf2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8Q-5b-kHT">
-                                <rect key="frame" x="16" y="293" width="343" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.981190025806427" green="0.75527528757501128" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <color key="tintColor" red="0.0" green="0.68713296980000005" blue="0.26746015099999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Transfer">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addTransfer:" destination="rfT-9m-RPN" eventType="touchUpInside" id="d0B-Jt-mMk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkm-xb-Ddv">
-                                <rect key="frame" x="16" y="381" width="343" height="229"/>
+                                <rect key="frame" x="0.0" y="377" width="375" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
@@ -105,6 +92,19 @@
                                     <action selector="addExpense:" destination="rfT-9m-RPN" eventType="touchUpInside" id="Q9G-cW-1yr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8Q-5b-kHT">
+                                <rect key="frame" x="0.0" y="289" width="375" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.981190025806427" green="0.75527528757501128" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="tintColor" red="0.0" green="0.68713296980000005" blue="0.26746015099999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Transfer">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTransfer:" destination="rfT-9m-RPN" eventType="touchUpInside" id="d0B-Jt-mMk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSs-jb-kIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1696.8" y="-435.83208395802103"/>
+            <point key="canvasLocation" x="1633" y="-425"/>
         </scene>
         <!--Category Table View Controller-->
         <scene sceneID="poM-ME-Hpc">
@@ -170,15 +170,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1f2-yd-YIA">
-                                <rect key="frame" x="139" y="318" width="97" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter the exact amount:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66y-qu-Mtw">
+                                <rect key="frame" x="16" y="72" width="343" height="238"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="1f2-yd-YIA">
+                                <rect key="frame" x="16" y="318" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.4431372549" green="0.0" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -259,7 +266,7 @@
             </objects>
             <point key="canvasLocation" x="1383" y="1024"/>
         </scene>
-        <!--Transactions-->
+        <!--History-->
         <scene sceneID="d1b-7P-ddY">
             <objects>
                 <tableViewController id="sU3-DP-oP0" customClass="TransactionTableViewController" customModule="LedgerClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -298,7 +305,7 @@
                             <outlet property="delegate" destination="sU3-DP-oP0" id="fQp-lj-aNW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Transactions" id="Vla-m0-qXw"/>
+                    <tabBarItem key="tabBarItem" title="History" image="List" id="Vla-m0-qXw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8Q-6z-Z7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -313,6 +320,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="A4n-pS-0Al" kind="relationship" relationship="viewControllers" id="iQd-9f-LuO"/>
@@ -485,8 +493,15 @@
                                     <outlet property="delegate" destination="QbS-Pa-pqW" id="TKv-os-1qT"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Give it a name:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-yn-tob">
+                                <rect key="frame" x="14" y="28" width="347" height="238"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.44441731769999998" green="0.0" blue="0.63384331599999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="descriptionTextField" destination="eNg-6c-dat" id="CVi-hw-63d"/>
@@ -496,11 +511,11 @@
             </objects>
             <point key="canvasLocation" x="5839" y="-520"/>
         </scene>
-        <!--New-->
+        <!--Transaction-->
         <scene sceneID="rmS-dD-9t4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A4n-pS-0Al" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="New" id="9cW-Zg-XMu"/>
+                    <tabBarItem key="tabBarItem" title="Transaction" image="Plus" id="9cW-Zg-XMu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oco-8j-0mQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -605,4 +620,8 @@
             <point key="canvasLocation" x="4959" y="-541"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="List" width="30" height="25"/>
+        <image name="Plus" width="25" height="25"/>
+    </resources>
 </document>

@@ -19,6 +19,20 @@ class EnterNumberViewController: UIViewController {
         super.viewDidLoad()
 
         addDoneButtonToKeyboard()
+        updateBackground()
+        
+        
+        numberTextField.becomeFirstResponder()
+    }
+    
+    func updateBackground() {
+        if context.type == .Income {
+            self.view.backgroundColor = UIColor.incomeColor
+        } else if context.type == .Expense {
+            self.view.backgroundColor = UIColor.expenseColor
+        } else if context.type == .Transfer {
+            self.view.backgroundColor = UIColor.transferColor
+        }
     }
     
     func addDoneButtonToKeyboard() {

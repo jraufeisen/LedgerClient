@@ -266,9 +266,6 @@ class LedgerModel: NSObject {
             }
             
         }
-        
         return beancount
     }
-    
-    
 }
