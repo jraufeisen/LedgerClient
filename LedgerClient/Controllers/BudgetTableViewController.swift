@@ -11,7 +11,7 @@ import UIKit
 class BudgetTableViewController: UITableViewController {
 
     //Instance variables
-    let ledger = LedgerModel.defaultModel
+    let ledger = LedgerModel.shared()
     var budget = [(Account, Decimal)]()
 
     //Constants

@@ -11,8 +11,8 @@ import UIKit
 class CategoryTableViewController: UITableViewController {
 
     //Instance variables
-    let ledger = LedgerModel.defaultModel
-    let categories = LedgerModel.defaultModel.categories()
+    let ledger = LedgerModel.shared()
+    let categories = LedgerModel.shared().categories()
     var budget = [String:Decimal]()
    
     var categoryDelegate: CategoryTableViewDelegate?

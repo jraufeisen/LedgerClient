@@ -40,7 +40,7 @@ extension EnterDescriptionViewController: UITextFieldDelegate {
         //Write tx to ledger file
         context.description = textField.text
         
-        _ = LedgerModel.defaultModel.postTransaction(context: context)
+        _ = LedgerModel.shared().postTransaction(context: context)
         
         navigationController?.popToRootViewController(animated: true)
         return true

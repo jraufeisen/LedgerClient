@@ -152,15 +152,15 @@ extension WatchSessionManager {
         //new income statement
         if let incomeArray = message["Income"] as? [String] {
             let bankingAccount = Account.init(name: "Assets:Banking:\(incomeArray[0])")
-            let success = LedgerModel.defaultModel.postIncome(acc: bankingAccount,  value: incomeArray[1])
+            let success = LedgerModel.shared().postIncome(acc: bankingAccount,  value: incomeArray[1])
             //Call the reply handler
             replyHandler(["Success":success])
         }
         
         //Return categories
         if message["Ask for budget"] != nil {
-            let categories = LedgerModel.defaultModel.categories()
-            let budgetValues = categories.map{ LedgerModel.defaultModel.budgetInCategory(category: $0).description}
+            let categories = LedgerModel.shared().categories()
+            let budgetValues = categories.map{ LedgerModel.shared().budgetInCategory(category: $0).description}
             
             let budget = Dictionary(uniqueKeysWithValues: zip(categories, budgetValues))
             replyHandler(["Budget":budget])
@@ -168,7 +168,7 @@ extension WatchSessionManager {
 
         //New expense statement
         if let expenseArray = message["Expense"] as? [String] {
-            let success = LedgerModel.defaultModel.postExpense(acc: expenseArray[0], value: expenseArray[1], category: expenseArray[2])
+            let success = LedgerModel.shared().postExpense(acc: expenseArray[0], value: expenseArray[1], category: expenseArray[2])
             //Call the reply handler
             replyHandler(["Success":success])
         }

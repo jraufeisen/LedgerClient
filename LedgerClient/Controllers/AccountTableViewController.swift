@@ -10,7 +10,7 @@ import UIKit
 
 class AccountTableViewController: UITableViewController {
 
-    let model = LedgerModel.defaultModel
+    let model = LedgerModel.shared()
     let accounts = ["Bargeld","Girokonto","Kreditkarte", "Tagesgeld"]
     var accountDelegate: AccountTableViewDelegate?
     

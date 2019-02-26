@@ -21,13 +21,13 @@ class TransactionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LedgerModel.defaultModel.transactions.count
+        return LedgerModel.shared().transactions.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell") else {return UITableViewCell() }
         
-        let transaction = LedgerModel.defaultModel.transactions[indexPath.row]
+        let transaction = LedgerModel.shared().transactions[indexPath.row]
         
         cell.textLabel?.text = transaction.name
         cell.detailTextLabel?.text =  String(format: "%.2f", (transaction.effectiveValue() as NSDecimalNumber).floatValue)

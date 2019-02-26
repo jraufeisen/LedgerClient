@@ -11,14 +11,23 @@ import UIKit
 class LedgerModel: NSObject {
 
     
+    private static var privateShared : LedgerModel?
+    class func shared() -> LedgerModel {
+        guard let uwShared = privateShared else {
+            privateShared = LedgerModel.init(ledgerString: defaultJournal)
+            return privateShared!
+        }
+        return uwShared
+    }
+    private func resetSharedModel() {
+        LedgerModel.privateShared = nil
+    }
+    
     ///All accounts in the given file
     let accounts: [Account]
     
     ///All transactions that occurred
     let transactions: [Transaction]
-
-    static let defaultModel: LedgerModel = LedgerModel.init(ledgerString: defaultJournal)
-    
     
     
     //MARK: Initializers
@@ -53,7 +62,6 @@ class LedgerModel: NSObject {
         }
 
         return categories
-        
     }
 
  
@@ -128,7 +136,6 @@ class LedgerModel: NSObject {
         \tEquity:Income
         
         """
-        
         return appendToLedger(appendingString: incomeStatement)
         
     }
@@ -153,7 +160,6 @@ class LedgerModel: NSObject {
         \tEquity:AntiBudget:\(category)
 
         """
-        
         return appendToLedger(appendingString: incomeStatement)
         
     }
@@ -164,6 +170,8 @@ class LedgerModel: NSObject {
     
     ///Appends string to the current ledger file. Returns YES on success
     private func appendToLedger(appendingString: String) -> Bool {
+        resetSharedModel()
+
         let together = LedgerModel.defaultJournal + "\n" + appendingString
         do {
             try together.write(to: LedgerModel.defaultURL, atomically: true, encoding: String.Encoding.utf8)
@@ -173,7 +181,6 @@ class LedgerModel: NSObject {
             return false
         }
         
-
     }
     
     
