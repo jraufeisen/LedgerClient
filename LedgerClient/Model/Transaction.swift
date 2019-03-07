@@ -80,8 +80,7 @@ class Transaction: NSObject {
         if let eqAcc = equityAccount {
             postings.append( (eqAcc, equitySum) )
         } else if equitySum != 0 {
-            print("Warning: There is an unbalanced transaction \(equitySum). Ignoring it...")
-            return nil
+            print("Warning: There is an unbalanced transaction \(equitySum). Parse it anyway... (since this my be caused by intentionally unbalanced virtual transactions)")
         }
         
         self.postings = postings
