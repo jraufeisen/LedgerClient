@@ -144,23 +144,23 @@ class LedgerModel: NSObject {
     ///Appends expense to the current ledger file. Returns YES on success
     func postExpense(acc: String, value: String, category: String, description: String = "Transaktion") -> Bool {
         let value = value.replacingOccurrences(of: ",", with: ".")
-        guard let income = Float(value) else {print("Not a valid number");return false}
-        guard income > 0 else {print("Not a positive expense!");return false}
+        guard let expense = Float(value) else {print("Not a valid number");return false}
+        guard expense > 0 else {print("Not a positive expense!");return false}
 
         
         let date = LedgerModel.dateString(date: Date())
         let reverse_value = value.range(of: "-") == nil ? "-" + value : value.replacingOccurrences(of: "-", with: "")
 
-        let incomeStatement = """
+        let expenseStatement = """
         
         \(date) \(description)
-        \tAssets:Banking:\(acc) \t \(value) EUR
-        \t[Assets:Budget:\(category)]\t \(value) EUR
-        \tExpenses:\(category)\t \(reverse_value) EUR
+        \tAssets:Banking:\(acc) \t \(reverse_value) EUR
+        \t[Assets:Budget:\(category)]\t \(reverse_value) EUR
+        \tExpenses:\(category)\t \(value) EUR
         \tEquity:AntiBudget:\(category)
 
         """
-        return appendToLedger(appendingString: incomeStatement)
+        return appendToLedger(appendingString: expenseStatement)
         
     }
 
