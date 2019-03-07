@@ -155,7 +155,7 @@ class LedgerModel: NSObject {
         
         \(date) \(description)
         \tAssets:Banking:\(acc) \t \(reverse_value) EUR
-        \t[Assets:Budget:\(category)]\t \(reverse_value) EUR
+        \t(Assets:Budget:\(category))\t \(reverse_value) EUR
         \tExpenses:\(category)\t \(value) EUR
         \tEquity:AntiBudget:\(category)
 
