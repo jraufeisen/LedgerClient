@@ -33,12 +33,20 @@ class LedgerModel: NSObject {
     //MARK: Initializers
     class var defaultURL: URL {
         guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {print("iCloud URL not found");return URL.init(fileURLWithPath: "")}
-        let finance_URL = iCloudDocumentsURL.appendingPathComponent("/finances.txt")
+        let finance_URL = iCloudDocumentsURL.appendingPathComponent("finances.txt")
         return finance_URL
     }
     
     class var defaultJournal: String {
-        guard let found = FileManager.default.contents(atPath: LedgerModel.defaultURL.path) else {print("Ledger file not found");return ""}
+        guard let found = FileManager.default.contents(atPath: LedgerModel.defaultURL.path) else {
+            /*
+            If the file is not found on the device, check for permissions, possible duplicates, snyc failures, etc..
+            */
+            print("FATAL ERROR: Ledger file not found")
+            print(LedgerModel.defaultURL.path)
+            return ""
+            
+        }
         guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return ""}
         return string_contents
     }

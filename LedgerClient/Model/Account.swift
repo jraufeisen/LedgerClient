@@ -33,9 +33,9 @@ class Account: NSObject {
         //Ignore leading (and trailing) whitespaces
         var testStr = line.trimmingCharacters(in: .whitespaces)
         
-        //Ignore brackets (used for virtual transactions)
-        testStr = testStr.replacingOccurrences(of: "[", with: "")
-        testStr = testStr.replacingOccurrences(of: "]", with: "")
+        //Ignore parantheses (used for virtual transactions)
+        testStr = testStr.replacingOccurrences(of: "(", with: "")
+        testStr = testStr.replacingOccurrences(of: ")", with: "")
 
         //Match until an invalid character occurrs
         let pat = "[A-Z,a-z,:]+"

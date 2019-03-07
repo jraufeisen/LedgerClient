@@ -13,7 +13,7 @@ import UIKit
  
  2017/10/08 Tanken
     Assets:Banking:Kreditkarte -48.27 EUR
-    [Assets:Budget:Sprit]      -48.27 EUR
+    (Assets:Budget:Sprit)      -48.27 EUR
     Expenses:Sprit              48.27 EUR
     Equity:AntiBudget:Sprit
 
